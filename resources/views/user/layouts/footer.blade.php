@@ -9,6 +9,7 @@
 									<li><a href="#">Shop</a></li>
 									<li><a href="#">about us</a></li>
 									<li><a href="#">Contact</a></li>
+									<li><a href="#">test</a></li>
 									
 								</ul>
 						</div>
