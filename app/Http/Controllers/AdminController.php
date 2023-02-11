@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AdminController extends Controller
 {
     public function AdminDashboard(){
+
           return view('admin.index');
     }// End Method
 
@@ -18,6 +20,17 @@ class AdminController extends Controller
 
     }// End Method
 
+    public function AdminProfile(){
+
+        $id = auth::user()->id;
+        $adminData = User::find($id);
+        return view('admin.admin_profile', compact('adminData'));
+    }// End Method
+    
+    public function AdminProfileStore(Request $request){
+
+
+    }// End Method
 
 
     public function AdminDestroy(Request $request) 
@@ -31,6 +44,6 @@ class AdminController extends Controller
         return redirect('/admin/login');
     }// End Method
 
-
+    
 
 }

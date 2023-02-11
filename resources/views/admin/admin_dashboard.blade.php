@@ -1,3 +1,5 @@
+{{-- // Master Page --}}
+
 <!doctype html>
 <html lang="en">
 

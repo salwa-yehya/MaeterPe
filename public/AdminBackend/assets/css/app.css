@@ -225,7 +225,7 @@ a {
 .sidebar-wrapper .metismenu a:active,
 .sidebar-wrapper .metismenu a:focus,
 .sidebar-wrapper .metismenu a:hover {
-	color: #b0afaf;
+	color: #000;
 	text-decoration: none;
 	background: rgb(13 110 253 / .12)
 }
