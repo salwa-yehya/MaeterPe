@@ -20,5 +20,8 @@
 	<link rel="stylesheet" href="{{asset('AdminBackend/assets/css/dark-theme.css')}}" />
 	<link rel="stylesheet" href="{{asset('AdminBackend/assets/css/semi-dark.css')}}" />
 	<link rel="stylesheet" href="{{asset('AdminBackend/assets/css/header-colors.css')}}" />
+	<!-- toastr -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
 	<title>Admin Dashboard</title>
 </head>

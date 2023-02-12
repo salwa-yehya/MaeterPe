@@ -61,7 +61,7 @@
                                     <h6 class="mb-0">Role</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="{{ $adminData->name}}" disabled/>
+                                    <input type="text" class="form-control" value="{{ $adminData->username}}" disabled/>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -121,7 +121,7 @@
                             <div class="row">
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="button" class="btn btn-primary px-4" value="Save Changes" />
+                                    <input type="submit" class="btn btn-primary px-4" value="Save Changes" />
                                 </div>
                             </div>
                            </div>
