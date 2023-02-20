@@ -30,7 +30,7 @@
                         <div class="card-body">
 
                            
-                           <form action="{{route('admin.profile.store')}}" method="post" >
+                           <form action="{{route('update.password')}}" method="post" >
                             @csrf                   
                            
                                 @if (session('status'))
@@ -49,9 +49,12 @@
                                     <h6 class="mb-0">Old Password</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="password" class="form-control  @error('old_password')
+                                    <input type="password" class="form-control 
+                                 @error('old_password')
                                     is-invalid
-                                @enderror " name="old_password" id="current_password" placeholder="Enter Your Current Password"/>
+                                @enderror "
+                                 name="old_password" id="current_password"
+                                  placeholder="Enter Your Current Password"/>
 
 
                                 @error('old_password')
@@ -68,12 +71,14 @@
                                     <h6 class="mb-0">New Password</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="password" class="form-control  @error('new_password')
+                                    <input type="password" class="form-control
+                                @error('new_password')
                                     is-invalid
-                                @enderror " name="new_password" id="new_password" placeholder="Enter Your New Password"/>
+                                @enderror "
+                                 name="new_password" id="new_password" placeholder="Enter Your New Password"/>
 
 
-                                @error('old_password')
+                                @error('new_password')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
 
@@ -88,15 +93,9 @@
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input type="password" class="form-control " name="new_password_confirmation" id="new_password_confirmation" placeholder="Confirm Your New Password"/>
-
-
-                                @error('old_password')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-
-
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-9 text-secondary">

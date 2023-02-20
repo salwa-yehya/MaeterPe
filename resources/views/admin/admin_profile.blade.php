@@ -48,14 +48,6 @@
                            
                            <form action="{{route('admin.profile.store')}}" method="post" enctype="multipart/form-data">
                             @csrf                   
-                                  {{-- <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">User Name</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="{{ $adminData->username}}" />
-                                </div>
-                            </div> --}}
                             <div class="row mb-3">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Role</h6>

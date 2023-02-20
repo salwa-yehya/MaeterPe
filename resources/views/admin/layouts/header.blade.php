@@ -325,7 +325,7 @@
 
 
             @php
-               $id = Illuminate\Support\Facades\auth::user()->id;
+               $id =Auth::user()->id;
                $adminData = App\Models\User::find($id); 
             @endphp
 
@@ -333,10 +333,7 @@
             <div class="user-box dropdown">
                 <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-
-                    <img src="{{ (!empty($adminData->photo)) ? 
-                     url('upload/admin_images/'.$adminData->photo): 
-                    url('upload/no_image.png') }} class="user-img" alt="user avatar">
+                    <img src="{{ (!empty($adminData->photo)) ? url('upload/admin_images/'.$adminData->photo):url('upload/no_image.png')}}" class="user-img" alt="user avatar">
 
 
                     <div class="user-info ps-3">
