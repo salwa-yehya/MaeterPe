@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 
 Route::get('/', function () {
@@ -24,11 +25,17 @@ Route::get('/customize', function () {
     return view('customize');
 });
 
+Route::middleware(['auth'])->group(function(){
 
+    Route::get('/dashboard' , [UserController::class , 'UserDashboard'])->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    Route::get('/user/profile/store' , [UserController::class , 'UserProfileStore'])->name('user.profile.store');
+
+});//Group Middleware end
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 
 require __DIR__.'/auth.php';
