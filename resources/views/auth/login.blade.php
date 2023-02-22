@@ -66,6 +66,7 @@
             </div>
         </div>
     </main>
+    
     @include('frontend.body.footer')
 
     <!-- Preloader Start -->
