@@ -4,7 +4,7 @@
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
 					<div class="breadcrumb-title pe-3">All Category</div>
-					<div class="ps-3">
+					<div class="ps-2">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
@@ -15,7 +15,7 @@
 					</div>
 					<div class="ms-auto">
 						<div class="btn-group">
-		<a href="#" class="btn btn-primary">Add Category</a> 				 
+		<a href="{{ route ('add.category')}}" class="btn btn-primary">Add Category</a> 				 
 						</div>
 					</div>
 				</div>
@@ -31,7 +31,9 @@
 				<th>Id</th>
 				<th>Category Name </th>
 				<th>Category Image </th>
-				<th>Action</th> 
+				<th>Edit</th> 
+				<th>Delete</th> 
+				
 			</tr>
 		</thead>
 		<tbody>
@@ -39,10 +41,13 @@
 			<tr>
 				<td> {{ $key+1 }} </td>
 				<td>{{ $item->category_name }}</td>
-				<td> <img src="{{ asset($item->category_image) }}" style="width: 70px; height:40px;" >  </td>
+				<td> <img src="{{ asset($item->category_image) }}" style="width: 100px; height:100px;" >  </td>
                 <td>
-                {{-- <a href="{{ route('edit.brand',$item->id) }}" class="btn btn-info">Edit</a>
-                <a href="{{ route('delete.brand',$item->id) }}" class="btn btn-danger" id="delete" >Delete</a> --}}
+					<a href="{{ route('edit.category',$item->id) }}"  title="Edit Data"> <i class="fa fa-pencil"></i> </a>
+				</td> 
+				<td>
+
+					<a href="{{ route('delete.category',$item->id) }}"  id="delete" title="Delete Data" ><i class="fa fa-trash"></i></a>
 
 				</td> 
 			</tr>
