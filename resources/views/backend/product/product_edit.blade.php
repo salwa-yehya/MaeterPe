@@ -24,8 +24,10 @@
 	  <h5 class="card-title">Edit Product</h5>
 	  <hr/>
 
-<form id="myForm" method="post" action="{{ route('store.product') }}" enctype="multipart/form-data" >
+<form id="myForm" method="post" action="{{ route('update.product') }}"  >
 			@csrf
+
+		<input type="hidden" name="id" value="{{ $products->id }}">
 
        <div class="form-body mt-4">
 	    <div class="row">
@@ -97,7 +99,7 @@
 					<select name="category_id" class="form-select" >
 						<option></option>
 						@foreach($categories as $category)
-						<option value="{{ $category->id }}">{{ $category->category_name }}</option>
+						<option value="{{ $category->id }}" {{$category->id == $products->category_id ? 'selected' : ''}}   >{{ $category->category_name }}</option>
 						 @endforeach
 					  </select>
 				  </div>
@@ -118,7 +120,7 @@
 
 <div class="col-md-6">	
     <div class="form-check">
-			<input class="form-check-input" name="offer" type="checkbox" value="1" id="flexCheckDefault">
+			<input class="form-check-input" name="offer" type="checkbox" value="1" id="flexCheckDefault"  {{ $products->offer ==1 ? 'checked' : '' }}>
 			<label class="form-check-label" for="flexCheckDefault">On sale</label>
 		</div>
 	</div>
@@ -153,6 +155,44 @@
 </div>
 
 			</div>
+     {{--//// Image Update ////--}}
+	 <div class="page-content">
+		<h5 class="mb-0 "> Update Image</h5>
+		<hr>
+	 <div class="card">
+		
+         <form  method="post" action="{{ route('update.product.image') }}" enctype="multipart/form-data" >
+	      @csrf
+
+		  <input type="hidden" name="id" value="{{$products->id}}">
+		  <input type="hidden" name="old-img" value="{{$products->product_image}}">
+
+		<div class="card-body">
+			<div class="mb-3">
+				<label for="formFile" class="form-label">Choose an image</label>
+				<input name="product_image" class="form-control" type="file" id="formFile">
+			</div>
+
+			<div class="mb-3">
+				<img src="{{ asset($products->product_image) }}" alt=""  style="width: 100px ; height:100px" >
+			</div>
+			<input type="submit" class="btn btn-primary px-4" value="Save Changes" />
+
+		</form>
+
+
+
+		</div>
+		</div>
+
+     {{--////end Image Update ////--}}
+
+
+
+
+
+
+
 
 
 

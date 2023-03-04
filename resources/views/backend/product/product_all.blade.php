@@ -52,7 +52,7 @@
 				<td>{{ $item->product_qty }}</td>
 
 				
-				<td>
+			<td>
 					@if($item->discount_price == NULL)
 			<span class="badge rounded-pill bg-info">No Discount</span>
 			@else
@@ -62,7 +62,7 @@
 			@endphp
 		<span class="badge rounded-pill bg-danger"> {{ round($discount) }}%</span>
 			@endif
-					 </td>
+			  </td>
 
 
 
@@ -72,14 +72,17 @@
 					<span class="badge rounded-pill bg-danger">InActive</span>
 					@endif
 				   </td>
+
+
 				<td>
-					<a href="{{ route('edit.product',$item->id) }}" title="Edit Data"> <i class="fa fa-pencil"></i> </a>
-					<a href="{{ route('delete.category',$item->id) }}"  id="delete" title="Delete Data" ><i class="fa fa-trash" style="padding-right: 10px"></i></a>
+					<a href="{{ route('edit.product',$item->id) }}" title="Edit Data"> <i class="fa fa-pencil" style="padding-right: 10px"></i> </a>
+					<a href="{{ route('delete.product',$item->id) }}"  id="delete" title="Delete Data" ><i class="fa fa-trash" style="padding-right: 10px"></i></a>
+
 					<a href="{{ route('edit.category',$item->id) }}"  title="Details Page"> <i class="fa fa-eye" style="padding-right: 10px"></i> </a>
 					@if($item->status == 1)
-					<a href="{{ route('edit.category',$item->id) }}"  title="click to Inactive"> <i class="fa-solid fa-thumbs-down" style="padding-right: 10px"></i> </a>
+					<a href="{{ route('product.inactive',$item->id) }}"  title="Click to Inactive"> <i class="fa-solid fa-thumbs-down"></i> </a>
 					@else
-					<a href="{{ route('edit.category',$item->id) }}" c title="click to Active"> <i class="fa-solid fa-thumbs-up" style="padding-right: 10px"></i> </a>
+					<a href="{{ route('product.active',$item->id) }}" title="Click to Active"> <i class="fa-solid fa-thumbs-up"></i> </a>
 					@endif
 
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Middleware\RedirectIfAuthenticated;
 
 
 Route::get('/', function () {
@@ -63,8 +64,7 @@ Route::middleware(['auth','role:admin'])->group(function() {
    
 });
 
-Route::get('/admin/login' , [AdminController::class , 'AdminLogin']);
-
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->middleware(RedirectIfAuthenticated::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -93,6 +93,12 @@ Route::controller(ProductController::class)->group(function(){
     Route::get('/add/product' , 'AddProduct')->name('add.product');
     Route::post('/store/product' , 'StoreProduct')->name('store.product');
     Route::get('/edit/product/{id}' , 'EditProduct')->name('edit.product');
+    Route::post('/update/product' , 'UpdateProduct')->name('update.product');
+    Route::post('/update/product/image' , 'UpdateProductImage')->name('update.product.image');
+    Route::get('/product/inactive/{id}' , 'ProductInactive')->name('product.inactive');
+    Route::get('/product/active/{id}' , 'ProductActive')->name('product.active');
+    Route::get('/delete/product/{id}' , 'ProductDelete')->name('delete.product');
+
 
 });//end Product
 
