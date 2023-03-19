@@ -43,6 +43,7 @@
 	</div><!--end wrapper-->
 	
 
+	@include('admin.layouts.footer_script')
 
 	<!--start switcher-->
 	{{-- <div class="switcher-wrapper">
@@ -143,7 +144,6 @@
 	</div> --}}<!--end switcher-->
 	
 
-     @include('admin.layouts.footer_script')
 
 </body>
 

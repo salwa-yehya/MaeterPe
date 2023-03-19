@@ -1,4 +1,4 @@
-<section class="banners mb-25">
+{{-- <section class="banners mb-25">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6">
@@ -36,4 +36,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}

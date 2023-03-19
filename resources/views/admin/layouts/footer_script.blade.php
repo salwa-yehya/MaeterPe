@@ -92,3 +92,4 @@
 	</script>
 
 	</script>
+	<script src="{{asset('AdminBackend/assets/plugins/metismenu/js/metisMenu.min.js')}}"></script>

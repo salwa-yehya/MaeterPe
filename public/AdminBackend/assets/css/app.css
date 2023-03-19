@@ -250,12 +250,12 @@ a {
 	transform: rotate(-45deg) translateY(-50%);
 	transform-origin: top;
 	top: 50%;
-	transition: all .3s ease-out
+	transition: all .3s ease-out;
 }
 
 @media screen and (min-width:1025px) {
 	.wrapper.toggled:not(.sidebar-hovered) .sidebar-wrapper .sidebar-header .logo-text {
-		display: none
+		display: none;
 	}
 	.wrapper.toggled:not(.sidebar-hovered) .sidebar-wrapper {
 		width: 70px
@@ -276,16 +276,16 @@ a {
 		justify-content: center
 	}
 	.wrapper.toggled:not(.sidebar-hovered) .sidebar-wrapper .metismenu .menu-title {
-		display: none
+		display: none;
 	}
 	.wrapper.toggled:not(.sidebar-hovered) .sidebar-wrapper .metismenu li ul {
-		display: none
+		display: none;
 	}
 	.wrapper.toggled:not(.sidebar-hovered) .sidebar-wrapper .metismenu li.menu-label {
-		display: none
+		display: none;
 	}
 	.wrapper.toggled:not(.sidebar-hovered) .sidebar-wrapper .metismenu .has-arrow:after {
-		display: none
+		display: none;
 	}
 	.email-toggle-btn {
 		display: none!important

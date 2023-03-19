@@ -1,96 +1,223 @@
 
 {{-- X --}}
+@section ('css')
+
+ <!-- Link Checkout CSS -->
+ <link rel="stylesheet" href="{{asset('css/checkout.css')}}">
+
+@endsection
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  scroll-behavior: smooth;
+
+}
+ @font-face {
+  font-family: font ;
+  src: url(../FontsFree-Net-vanitas-bold.ttf);
+ }
+
+body {
+  width: 100% !important;
+  min-height: 100vh;
+  font-family: 'object-fit: contain, object-position: 50% 50%';
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #333;
+}
+
+h1 {
+  font-size: 45px;
+  line-height: 55px;
+  color: #333;
+  font-family: 'object-fit: contain, object-position: 50% 50%';
+  font-weight: 400;
+}
+
+h2 {
+  padding-top: 30px;
+  font-size: 50px;
+  line-height: 54px;
+  color: #000;
+  font-family: font ;
+  font-family: 'object-fit: contain, object-position: 50% 50%';
+
+}
+
+h4 {
+  font-size: 25px;
+  color: #222;
+  font-family: 'object-fit: contain, object-position: 50% 50%';
+
+}
+h5{
+color: #000;
+  font-weight: 500;
+  font-size: 22px;
+  font-family: 'object-fit: contain, object-position: 50% 50%';
+}
+h6 {
+  font-weight: 700px;
+  font-size: 12px;
+  font-family: 'object-fit: contain, object-position: 50% 50%';
+
+}
+
+p {
+  font-size: 19px;
+  color: #444;
+  margin: 15px 0 20px 0;
+  font-family: 'object-fit: contain, object-position: 50% 50%';
+
+}
+
+.section-p1 {
+  padding: 60px 80px;
+  
+}
+
+.section-p2 {
+  padding-top: 60px;
+}
+.section-p3 {
+  padding: 60px 10px ;
+}
+.section-m1 {
+  margin: 40px 0;
+}
+
+button.but {
+  /* font-family: 'object-fit: contain, object-position: 50% 50%'; */
+  font-size: 14px;
+  font-weight: 400;
+  padding: 15px 30px;
+  color: #BD4B4B;
+  background-color: #f8f5f4;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.pro_F_cont {
+  margin: 50px;
+}
+
+.pro_title_flex {
+  display: flex;
+  justify-content: space-around;
 
 
-<section class="popular-categories section-padding">
-    <div class="container wow animate__animated animate__fadeIn">
-        <div class="section-title">
-            <div class="title">
-                <h3>Featured Categories</h3>
+}
 
+.pro_title {
+  position: relative;
+
+}
+
+.pro_title_sale {
+  position: relative;
+}
+
+.pro_title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -13px;
+  background-color: #BD4B4B;
+  height: 1px;
+  box-sizing: border-box;
+  width: 180px;
+  margin: 6px;
+
+}
+.line {
+  padding: 5px;
+  color: #BD4B4B;
+}
+
+.pro_p {
+
+  font-size: 16px;
+  color: #AA6C49;
+  margin-top: 30px;
+}
+
+
+/* _____________________Category______________________ */
+#Category {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  /* font-family: "Vanitas", Sans-serif; */
+  text-align: left;
+  background: #Fff;
+}
+
+.image-flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+
+}
+
+.category_title {
+  text-align: center;
+  position: relative;
+  color: #000000;
+
+
+}
+.card::before{
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.281), rgba(0, 0, 0, 0.7));
+
+}
+
+
+
+.card-img-top:hover {
+  transform: scale(1.02);
+}
+
+
+
+
+  </style>
+       @php
+            $categories = App\Models\Category::orderBy('category_name' , 'ASC')->get();
+       @endphp
+
+        <section class="product-tabs section-padding position-relative">
+          <div class="container">
+              <div class="section-title style-2 wow animate__animated animate__fadeIn">
+            <h3 style="   font-family: 'object-fit: contain, object-position: 50% 50%'; margin-left: 100px
+                  ">Mirrors Category </h3>
+              </div>
+       
+
+           <div class="image-flex" >
+          @foreach ($categories as $item)
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{$item->category_image}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title category_title">{{$item->category_name}}</h5>
+              {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
+              {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
             </div>
-            <div class="slider-arrow slider-arrow-2 flex-right carausel-10-columns-arrow" id="carausel-10-columns-arrows"></div>
+          </div>
+        
+          @endforeach
         </div>
-        <div class="carausel-10-columns-cover position-relative">
-            <div class="carausel-10-columns" id="carausel-10-columns">
-                <div class="card-2 bg-9 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
-                    <figure class="img-hover-scale overflow-hidden">
-                        <a href="shop-grid-right.html"><img src="{{ asset('frontend/assets/imgs/shop/cat-13.png') }}" alt="" /></a>
-                    </figure>
-                    <h6><a href="shop-grid-right.html">Cake & Milk</a></h6>
-                    <span>26 items</span>
-                </div>
-                <div class="card-2 bg-10 wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
-                    <figure class="img-hover-scale overflow-hidden">
-                        <a href="shop-grid-right.html"><img src="{{ asset('frontend/assets/imgs/shop/cat-12.pn') }}g" alt="" /></a>
-                    </figure>
-                    <h6><a href="shop-grid-right.html">Oganic Kiwi</a></h6>
-                    <span>28 items</span>
-                </div>
-                <div class="card-2 bg-11 wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
-                    <figure class="img-hover-scale overflow-hidden">
-                        <a href="shop-grid-right.html"><img src="{{ asset('frontend/assets/imgs/shop/cat-11.png') }}" alt="" /></a>
-                    </figure>
-                    <h6><a href="shop-grid-right.html">Peach</a></h6>
-                    <span>14 items</span>
-                </div>
-                <div class="card-2 bg-12 wow animate__animated animate__fadeInUp" data-wow-delay=".4s">
-                    <figure class="img-hover-scale overflow-hidden">
-                        <a href="shop-grid-right.html"><img src="{{ asset('frontend/assets/imgs/shop/cat-9.png') }}" alt="" /></a>
-                    </figure>
-                    <h6><a href="shop-grid-right.html">Red Apple</a></h6>
-                    <span>54 items</span>
-                </div>
-                <div class="card-2 bg-13 wow animate__animated animate__fadeInUp" data-wow-delay=".5s">
-                    <figure class="img-hover-scale overflow-hidden">
-                        <a href="shop-grid-right.html"><img src="{{ asset('frontend/assets/imgs/shop/cat-3.png') }}" alt="" /></a>
-                    </figure>
-                    <h6><a href="shop-grid-right.html">Snack</a></h6>
-                    <span>56 items</span>
-                </div>
-                <div class="card-2 bg-14 wow animate__animated animate__fadeInUp" data-wow-delay=".6s">
-                    <figure class="img-hover-scale overflow-hidden">
-                        <a href="shop-grid-right.html"><img src="{{ asset('frontend/assets/imgs/shop/cat-1.png') }}" alt="" /></a>
-                    </figure>
-                    <h6><a href="shop-grid-right.html">Vegetables</a></h6>
-                    <span>72 items</span>
-                </div>
-                <div class="card-2 bg-15 wow animate__animated animate__fadeInUp" data-wow-delay=".7s">
-                    <figure class="img-hover-scale overflow-hidden">
-                        <a href="shop-grid-right.html"><img src="{{ asset('frontend/assets/imgs/shop/cat-2.png') }}" alt="" /></a>
-                    </figure>
-                    <h6><a href="shop-grid-right.html">Strawberry</a></h6>
-                    <span>36 items</span>
-                </div>
-                <div class="card-2 bg-12 wow animate__animated animate__fadeInUp" data-wow-delay=".8s">
-                    <figure class="img-hover-scale overflow-hidden">
-                        <a href="shop-grid-right.html"><img src="{{ asset('frontend/assets/imgs/shop/cat-4.png') }}" alt="" /></a>
-                    </figure>
-                    <h6><a href="shop-grid-right.html">Black plum</a></h6>
-                    <span>123 items</span>
-                </div>
-                <div class="card-2 bg-10 wow animate__animated animate__fadeInUp" data-wow-delay=".9s">
-                    <figure class="img-hover-scale overflow-hidden">
-                        <a href="shop-grid-right.html"><img src="{{ asset('frontend/assets/imgs/shop/cat-5.png') }}" alt="" /></a>
-                    </figure>
-                    <h6><a href="shop-grid-right.html">Custard apple</a></h6>
-                    <span>34 items</span>
-                </div>
-                <div class="card-2 bg-12 wow animate__animated animate__fadeInUp" data-wow-delay="1s">
-                    <figure class="img-hover-scale overflow-hidden">
-                        <a href="shop-grid-right.html"><img src="{{ asset('frontend/assets/imgs/shop/cat-14.png') }}" alt="" /></a>
-                    </figure>
-                    <h6><a href="shop-grid-right.html">Coffe & Tea</a></h6>
-                    <span>89 items</span>
-                </div>
-                <div class="card-2 bg-11 wow animate__animated animate__fadeInUp" data-wow-delay="0s">
-                    <figure class="img-hover-scale overflow-hidden">
-                        <a href="shop-grid-right.html"><img src="{{ asset('frontend/') }}assets/imgs/shop/cat-5.png" alt="" /></a>
-                    </figure>
-                    <h6><a href="shop-grid-right.html">Headphone</a></h6>
-                    <span>87 items</span>
-                </div>
-            </div>
         </div>
-    </div>
-</section>
+      </section><!-- =======End Category ======= -->
+    

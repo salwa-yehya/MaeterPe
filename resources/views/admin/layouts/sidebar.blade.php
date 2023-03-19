@@ -11,6 +11,7 @@
     </div>
     <!--navigation-->
     <ul class="metismenu" id="menu">
+
         <li>
             <a href="{{route('admin.dashboard')}}">
                 <div class="parent-icon"><i class='bx bx-home-circle'></i>
@@ -28,11 +29,13 @@
             <ul>
                 <li> <a href="{{ route('all.category')}}"><i class="bx bx-right-arrow-alt"></i>Category</a>
                 </li>
+
                 <li> <a href="{{ route('add.category')}}"><i class="bx bx-right-arrow-alt"></i>Add Category</a>
                 </li>
 
             </ul>
         </li>
+
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-home-circle'></i>
@@ -49,9 +52,28 @@
                 </ul>
             </ul>
         </li>
-        <li class="menu-label">UI Elements</li>
-   
+
         <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                </div>
+                <div class="menu-title">Slider</div>
+            </a>
+            <ul>
+                <ul>
+                    <li> <a href="{{ route('all.slider')}}"><i class="bx bx-right-arrow-alt"></i>All Slider</a>
+                    </li>
+                    <li> <a href="{{ route('add.slider')}}"><i class="bx bx-right-arrow-alt"></i>Add Slider</a>
+                    </li>
+    
+                </ul>
+            </ul>
+        </li>
+
+        
+        {{-- <li class="menu-label">UI Elements</li> --}}
+   
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
@@ -67,8 +89,8 @@
                 <li> <a href="ecommerce-orders.html"><i class="bx bx-right-arrow-alt"></i>Orders</a>
                 </li>
             </ul>
-        </li>
-        <li>
+        </li> --}}
+        {{-- <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
                 </div>
@@ -110,8 +132,8 @@
                 <li> <a href="component-avtars-chips.html"><i class="bx bx-right-arrow-alt"></i>Avatrs & Chips</a>
                 </li>
             </ul>
-        </li>
-        <li>
+        </li> --}}
+        {{-- <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-repeat"></i>
                 </div>
@@ -125,8 +147,8 @@
                 <li> <a href="content-text-utilities.html"><i class="bx bx-right-arrow-alt"></i>Text Utilities</a>
                 </li>
             </ul>
-        </li>
-        <li>
+        </li> --}}
+        {{-- <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"> <i class="bx bx-donate-blood"></i>
                 </div>
@@ -143,12 +165,12 @@
         </li>
             
  
-        </li>
+        </li> --}}
      
 
 
-        <li class="menu-label">Charts & Maps</li>
-        <li>
+        {{-- <li class="menu-label">Charts & Maps</li> --}}
+        {{-- <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-line-chart"></i>
                 </div>
@@ -162,8 +184,8 @@
                 <li> <a href="charts-highcharts.html"><i class="bx bx-right-arrow-alt"></i>Highcharts</a>
                 </li>
             </ul>
-        </li>
-        <li>
+        </li> --}}
+        {{-- <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-map-alt"></i>
                 </div>
@@ -175,17 +197,17 @@
                 <li> <a href="map-vector-maps.html"><i class="bx bx-right-arrow-alt"></i>Vector Maps</a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
         
         
-       
+         {{--        
         <li>
             <a href="https://themeforest.net/user/codervent" target="_blank">
                 <div class="parent-icon"><i class="bx bx-support"></i>
                 </div>
                 <div class="menu-title">Support</div>
             </a>
-        </li>
+        </li> --}}
     </ul>
     <!--end navigation-->
 </div>
