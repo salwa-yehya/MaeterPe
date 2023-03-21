@@ -2639,6 +2639,7 @@ input.qty-val {
 .nav-tabs {
   border: 0;
   margin-bottom: 4px;
+  margin-right: 70px;
 }
 
 .nav-tabs .nav-link {

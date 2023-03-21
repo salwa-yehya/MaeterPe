@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 
 
@@ -116,4 +117,10 @@ Route::controller(ProductController::class)->group(function(){
 
 
 });//end middleware
+
+
+
+// Product Details 
+Route::get('/product/details/{id}/{name}', [IndexController::class, 'ProductDetails']);
+
 ?>
