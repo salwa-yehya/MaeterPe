@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                    <span></span> <a href="shop-grid-right.html">Vegetables & tubers</a> <span></span> Seeds of Change Organic
+                    <span></span> <a href="shop-grid-right.html">{{ $product['category']['category_name'] }}</a> <span></span> {{$product->product_name}}
                 </div>
             </div>
         </div>
@@ -20,26 +20,9 @@
                 <!-- MAIN SLIDES -->
                 <div class="product-image-slider">
                     <figure class="border-radius-10">
-                        <img src="assets/imgs/shop/product-16-2.jpg" alt="product image" />
+                        <img src="{{ asset($product->product_image)}}" alt="product image" />
                     </figure>
-                    <figure class="border-radius-10">
-                        <img src="assets/imgs/shop/product-16-1.jpg" alt="product image" />
-                    </figure>
-                    <figure class="border-radius-10">
-                        <img src="assets/imgs/shop/product-16-3.jpg" alt="product image" />
-                    </figure>
-                    <figure class="border-radius-10">
-                        <img src="assets/imgs/shop/product-16-4.jpg" alt="product image" />
-                    </figure>
-                    <figure class="border-radius-10">
-                        <img src="assets/imgs/shop/product-16-5.jpg" alt="product image" />
-                    </figure>
-                    <figure class="border-radius-10">
-                        <img src="assets/imgs/shop/product-16-6.jpg" alt="product image" />
-                    </figure>
-                    <figure class="border-radius-10">
-                        <img src="assets/imgs/shop/product-16-7.jpg" alt="product image" />
-                    </figure>
+                  
                 </div>
              
             </div>
@@ -133,9 +116,7 @@
 <li class="nav-item">
     <a class="nav-link" id="Additional-info-tab" data-bs-toggle="tab" href="#Additional-info">Additional info</a>
 </li>
-<li class="nav-item">
-    <a class="nav-link" id="Vendor-info-tab" data-bs-toggle="tab" href="#Vendor-info">Vendor</a>
-</li>
+
 <li class="nav-item">
     <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">Reviews (3)</a>
 </li>
@@ -143,36 +124,9 @@
 <div class="tab-content shop_info_tab entry-main-content">
 <div class="tab-pane fade show active" id="Description">
     <div class="">
-        <p>Uninhibited carnally hired played in whimpered dear gorilla koala depending and much yikes off far quetzal goodness and from for grimaced goodness unaccountably and meadowlark near unblushingly crucial scallop tightly neurotic hungrily some and dear furiously this apart.</p>
-        <p>Spluttered narrowly yikes left moth in yikes bowed this that grizzly much hello on spoon-fed that alas rethought much decently richly and wow against the frequent fluidly at formidable acceptably flapped besides and much circa far over the bucolically hey precarious goldfinch mastodon goodness gnashed a jellyfish and one however because.</p>
-        <ul class="product-more-infor mt-30">
-            <li><span>Type Of Packing</span> Bottle</li>
-            <li><span>Color</span> Green, Pink, Powder Blue, Purple</li>
-            <li><span>Quantity Per Case</span> 100ml</li>
-            <li><span>Ethyl Alcohol</span> 70%</li>
-            <li><span>Piece In One</span> Carton</li>
-        </ul>
-        <hr class="wp-block-separator is-style-dots" />
-        <p>Laconic overheard dear woodchuck wow this outrageously taut beaver hey hello far meadowlark imitatively egregiously hugged that yikes minimally unanimous pouted flirtatiously as beaver beheld above forward energetic across this jeepers beneficently cockily less a the raucously that magic upheld far so the this where crud then below after jeez enchanting drunkenly more much wow callously irrespective limpet.</p>
-        <h4 class="mt-30">Packaging & Delivery</h4>
-        <hr class="wp-block-separator is-style-wide" />
-        <p>Less lion goodness that euphemistically robin expeditiously bluebird smugly scratched far while thus cackled sheepishly rigid after due one assenting regarding censorious while occasional or this more crane went more as this less much amid overhung anathematic because much held one exuberantly sheep goodness so where rat wry well concomitantly.</p>
-        <p>Scallop or far crud plain remarkably far by thus far iguana lewd precociously and and less rattlesnake contrary caustic wow this near alas and next and pled the yikes articulate about as less cackled dalmatian in much less well jeering for the thanks blindly sentimental whimpered less across objectively fanciful grimaced wildly some wow and rose jeepers outgrew lugubrious luridly irrationally attractively dachshund.</p>
-        <h4 class="mt-30">Suggested Use</h4>
-        <ul class="product-more-infor mt-30">
-            <li>Refrigeration not necessary.</li>
-            <li>Stir before serving</li>
-        </ul>
-        <h4 class="mt-30">Other Ingredients</h4>
-        <ul class="product-more-infor mt-30">
-            <li>Organic raw pecans, organic raw cashews.</li>
-            <li>This butter was produced using a LTG (Low Temperature Grinding) process</li>
-            <li>Made in machinery that processes tree nuts but does not process peanuts, gluten, dairy or soy</li>
-        </ul>
-        <h4 class="mt-30">Warnings</h4>
-        <ul class="product-more-infor mt-30">
-            <li>Oil separation occurs naturally. May contain pieces of shell.</li>
-        </ul>
+        <p> {!! $product->long_descp  !!}</p>
+
+       
     </div>
 </div>
 <div class="tab-pane fade" id="Additional-info">
@@ -440,17 +394,19 @@
 </div>
 <div class="row mt-60">
 <div class="col-12">
-<h2 class="section-title style-1 mb-30">Related products</h2>
+<h2 class="section-title style-1 mb-30" style="   font-family: 'object-fit: contain, object-position: 50% 50%';
+">Related products</h2>
 </div>
 <div class="col-12">
 <div class="row related-products">
+
+    @foreach($relatedProduct as $product)
 <div class="col-lg-3 col-md-4 col-12 col-sm-6">
     <div class="product-cart-wrap hover-up">
         <div class="product-img-action-wrap">
             <div class="product-img product-img-zoom">
-                <a href="shop-product-right.html" tabindex="0">
-                    <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="" />
-                    <img class="hover-img" src="assets/imgs/shop/product-2-2.jpg" alt="" />
+                <a href="{{ url('product/details/'.$product->id.'/'.$product->product_name) }}" tabindex="0">
+                    <img class="default-img" src="{{ asset( $product->product_image ) }}" alt="" />
                 </a>
             </div>
             <div class="product-action-1">
@@ -458,108 +414,43 @@
                 <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
             </div>
             <div class="product-badges product-badges-position product-badges-mrg">
-                <span class="hot">Hot</span>
+
+
+                @php
+                $amount = $product->selling_price - $product->discount_price;
+                $discount = ($amount/$product->selling_price) * 100;
+                @endphp
+
+                 @if($product->discount_price == NULL)
+                    <span class="new">New</span>
+                    @else
+                    <span class="hot"> {{ round($discount) }} %</span>
+                    @endif
             </div>
         </div>
         <div class="product-content-wrap">
-            <h2><a href="shop-product-right.html" tabindex="0">Ulstra Bass Headphone</a></h2>
+            <h2><a href="shop-product-right.html" tabindex="0">{{ $product->product_name }}</a></h2>
             <div class="rating-result" title="90%">
                 <span> </span>
             </div>
+            @if($product->discount_price == NULL)
             <div class="product-price">
-                <span>$238.85 </span>
-                <span class="old-price">$245.8</span>
-            </div>
+               <span>${{ $product->selling_price }}</span>
+
+           </div>
+
+           @else
+           <div class="product-price">
+               <span>${{ $product->discount_price }}</span>
+               <span class="old-price">${{ $product->selling_price }}</span>
+           </div>
+           @endif
+
         </div>
     </div>
 </div>
-<div class="col-lg-3 col-md-4 col-12 col-sm-6">
-    <div class="product-cart-wrap hover-up">
-        <div class="product-img-action-wrap">
-            <div class="product-img product-img-zoom">
-                <a href="shop-product-right.html" tabindex="0">
-                    <img class="default-img" src="assets/imgs/shop/product-3-1.jpg" alt="" />
-                    <img class="hover-img" src="assets/imgs/shop/product-4-2.jpg" alt="" />
-                </a>
-            </div>
-            <div class="product-action-1">
-                <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-search"></i></a>
-                <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
-            </div>
-            <div class="product-badges product-badges-position product-badges-mrg">
-                <span class="sale">-12%</span>
-            </div>
-        </div>
-        <div class="product-content-wrap">
-            <h2><a href="shop-product-right.html" tabindex="0">Smart Bluetooth Speaker</a></h2>
-            <div class="rating-result" title="90%">
-                <span> </span>
-            </div>
-            <div class="product-price">
-                <span>$138.85 </span>
-                <span class="old-price">$145.8</span>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4 col-12 col-sm-6">
-    <div class="product-cart-wrap hover-up">
-        <div class="product-img-action-wrap">
-            <div class="product-img product-img-zoom">
-                <a href="shop-product-right.html" tabindex="0">
-                    <img class="default-img" src="assets/imgs/shop/product-4-1.jpg" alt="" />
-                    <img class="hover-img" src="assets/imgs/shop/product-4-2.jpg" alt="" />
-                </a>
-            </div>
-            <div class="product-action-1">
-                <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-search"></i></a>
-                <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
-            </div>
-            <div class="product-badges product-badges-position product-badges-mrg">
-                <span class="new">New</span>
-            </div>
-        </div>
-        <div class="product-content-wrap">
-            <h2><a href="shop-product-right.html" tabindex="0">HomeSpeak 12UEA Goole</a></h2>
-            <div class="rating-result" title="90%">
-                <span> </span>
-            </div>
-            <div class="product-price">
-                <span>$738.85 </span>
-                <span class="old-price">$1245.8</span>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4 col-12 col-sm-6 d-lg-block d-none">
-    <div class="product-cart-wrap hover-up mb-0">
-        <div class="product-img-action-wrap">
-            <div class="product-img product-img-zoom">
-                <a href="shop-product-right.html" tabindex="0">
-                    <img class="default-img" src="assets/imgs/shop/product-5-1.jpg" alt="" />
-                    <img class="hover-img" src="assets/imgs/shop/product-3-2.jpg" alt="" />
-                </a>
-            </div>
-            <div class="product-action-1">
-                <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-search"></i></a>
-                <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
-            </div>
-            <div class="product-badges product-badges-position product-badges-mrg">
-                <span class="hot">Hot</span>
-            </div>
-        </div>
-        <div class="product-content-wrap">
-            <h2><a href="shop-product-right.html" tabindex="0">Dadua Camera 4K 2022EF</a></h2>
-            <div class="rating-result" title="90%">
-                <span> </span>
-            </div>
-            <div class="product-price">
-                <span>$89.8 </span>
-                <span class="old-price">$98.8</span>
-            </div>
-        </div>
-    </div>
-</div>
+@endforeach
+
 </div>
                             </div>
                         </div>
