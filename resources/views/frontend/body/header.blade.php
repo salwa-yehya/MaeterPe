@@ -285,6 +285,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div class="mobile-header-active mobile-header-wrapper-style">
     <div class="mobile-header-wrapper-inner">
         <div class="mobile-header-top">
@@ -298,6 +308,9 @@
                 </button>
             </div>
         </div>
+
+
+
         <div class="mobile-header-content-area">
             <div class="mobile-search search-style-3 mobile-header-border">
                 <form action="#">
@@ -325,10 +338,6 @@
                             <a href="index.html">Contact</a>
 
                         </li>
-                      
-                      
-                        
-                        
                         <li class="menu-item-has-children">
                             <a href="#">Language</a>
                             <ul class="dropdown">
@@ -340,6 +349,13 @@
                     </ul>
                 </nav>
                 <!-- mobile menu end -->
+
+
+
+
+
+
+
             </div>
             <div class="mobile-header-info-wrap">
                 {{-- <div class="single-mobile-header-info">
@@ -354,11 +370,10 @@
             </div>
             <div class="mobile-social-icon mb-50">
                 <h6 class="mb-15">Follow Us</h6>
-                <a href="#"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-facebook-white.svg') }}" alt="" /></a>
-                <a href="#"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-twitter-white.svg') }}" alt="" /></a>
-                <a href="#"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-instagram-white.svg') }}" alt="" /></a>
-                <a href="#"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-pinterest-white.svg') }}" alt="" /></a>
-                <a href="#"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-youtube-white.svg') }}" alt="" /></a>
+                <a href="https://www.facebook.com/"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-facebook-white.svg') }}" alt="" /></a>
+                <a href="https://www.twitter.com/"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-twitter-white.svg') }}" alt="" /></a>
+                <a href="https://www.instagram.com/"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-instagram-white.svg') }}" alt="" /></a>
+                <a href="https://www.pinterest.com/"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-pinterest-white.svg') }}" alt="" /></a>
             </div>
             <div class="site-copyright">Copyright 2023 © Nest. All rights reserved. Reflection.</div>
         </div>

@@ -123,4 +123,6 @@ Route::controller(ProductController::class)->group(function(){
 // Product Details 
 Route::get('/product/details/{id}/{name}', [IndexController::class, 'ProductDetails']);
 
+Route::get('/product/category/{id}/{name}', [IndexController::class, 'CatWiseProduct']);
+
 ?>

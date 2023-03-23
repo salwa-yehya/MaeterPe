@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 
 class IndexController extends Controller
@@ -19,4 +20,11 @@ class IndexController extends Controller
 
      } // End Method 
 
+     public function CatWiseProduct(Request $request,$id,$name){
+        $products = Product::where('status',1)->where('category_id',$id)->orderBy('id','DESC')->get();
+        $categories = Category::orderBy('category_name','ASC')->get();
+  
+        return view('frontend.product.category_view',compact('products','categories'));
+  
+       }// End Method 
 }

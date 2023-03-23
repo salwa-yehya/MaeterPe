@@ -4164,7 +4164,7 @@ table .product-thumbnail img {
 }
 
 .product-cart-wrap .product-badges span.hot {
-  background-color: #f74b81;
+  background-color: #dc3545;
 }
 
 .product-cart-wrap .product-badges span.new {
@@ -11503,9 +11503,9 @@ footer .hotline img {
   .download-app {
     margin-bottom: 0 !important;
   }
-  .footer-mid .logo img {
+  /* .footer-mid .logo img {
     max-width: 150px;
-  }
+  } */
   .footer-mid .widget-install-app, .footer-mid .widget-about {
     min-width: 205px;
   }

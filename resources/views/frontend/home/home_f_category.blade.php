@@ -206,11 +206,11 @@ button.but {
        
 
            <div class="image-flex" >
-          @foreach ($categories as $item)
+          @foreach ($categories as $category)
           <div class="card" style="width: 18rem;">
-            <img id="card-img-top" class="card-img-top" src="{{$item->category_image}}" alt="Card image cap">
+            <a href="{{url('product/category/'.$category->id.'/'.$category->category_name)}}"><img id="card-img-top" class="card-img-top" src="{{$category->category_image}}" alt="Card image cap"></a>
             <div class="card-body">
-              <h5 class="card-title category_title">{{$item->category_name}}</h5>
+              <h5 class="card-title category_title">{{$category->category_name}}</h5>
               {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
               {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
             </div>

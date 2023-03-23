@@ -39,7 +39,7 @@
 
 
     <!-- Footer  -->
-    @include('frontend.body.footer')
+    @include('frontend.body.footer2')
 
 
 
