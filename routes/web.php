@@ -14,21 +14,27 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 Route::get('/', function () {
     return view('frontend.index');
 });
-Route::get('/home', function () {
-    return view('home');
+Route::get('/mirror_shop', function () {
+    return view('frontend.shop.mirror_shop');
 });
-Route::get('/about', function () {
-    return view('about');
-});
-Route::get('/contact', function () {
-    return view('contact');
-});
-Route::get('/shop', function () {
-    return view('shop');
-});
-Route::get('/customize', function () {
-    return view('customize');
-});
+
+
+
+                    Route::get('/home', function () {
+                        return view('home');
+                    });
+                    Route::get('/about', function () {
+                        return view('about');
+                    });
+                    Route::get('/contact', function () {
+                        return view('contact');
+                    });
+                    Route::get('/shop', function () {
+                        return view('shop');
+                    });
+                    Route::get('/customize', function () {
+                        return view('customize');
+                    });
 
 Route::middleware(['auth'])->group(function(){
 

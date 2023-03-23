@@ -190,12 +190,12 @@
                             <ul>
 
                                 <li>
-                                    <a class="active" href="index.html">Home</a>
+                                    <a class="active" href="{{ url('/')}}">Home</a>
 
                                 </li>
                                
                                 <li>
-                                    <a href="page-about.html">Mirrors</a>
+                                    <a href="{{url ('/mirror_shop')}}">Mirrors</a>
                                 </li>
                                  <li>
                                     <a href="page-about.html">About</a>
@@ -323,19 +323,19 @@
                 <nav>
                     <ul class="mobile-menu font-heading">
                         <li class="menu-item-has-children">
-                            <a href="index.html">Home</a>
+                            <a href="{{ url('/')}}">Home</a>
 
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="index.html">Mirrors</a>
+                            <a href="{{ url('/shop')}}">Mirrors</a>
 
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="index.html">About</a>
+                            <a href="{{ url('/about')}}">About</a>
 
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="index.html">Contact</a>
+                            <a href="{{ url('/contact')}}">Contact</a>
 
                         </li>
                         <li class="menu-item-has-children">
