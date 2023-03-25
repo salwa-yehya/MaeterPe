@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 
 
@@ -20,21 +21,21 @@ Route::get('/mirror_shop', function () {
 
 
 
-                    Route::get('/home', function () {
-                        return view('home');
-                    });
-                    Route::get('/about', function () {
-                        return view('about');
-                    });
-                    Route::get('/contact', function () {
-                        return view('contact');
-                    });
-                    Route::get('/shop', function () {
-                        return view('shop');
-                    });
-                    Route::get('/customize', function () {
-                        return view('customize');
-                    });
+                    // Route::get('/home', function () {
+                    //     return view('home');
+                    // });
+                    // Route::get('/about', function () {
+                    //     return view('about');
+                    // });
+                    // Route::get('/contact', function () {
+                    //     return view('contact');
+                    // });
+                    // Route::get('/shop', function () {
+                    //     return view('shop');
+                    // });
+                    // Route::get('/customize', function () {
+                    //     return view('customize');
+                    // });
 
 Route::middleware(['auth'])->group(function(){
 
@@ -130,5 +131,32 @@ Route::controller(ProductController::class)->group(function(){
 Route::get('/product/details/{id}/{name}', [IndexController::class, 'ProductDetails']);
 
 Route::get('/product/category/{id}/{name}', [IndexController::class, 'CatWiseProduct']);
+
+
+/// Add to cart store data
+Route::middleware(['auth','role:user'])->group(function(){
+
+    Route::controller(CartController::class)->group(function(){
+
+        // add to cart store data 
+        Route::post('/cart/data/store/{id}/','AddToCart');
+        
+        //view cart details
+        Route::get('/mycart','MyCart')->name('mycart');
+
+        Route::get('/delete/cart/{id}','DeleteCart')->name('delete.cart');
+
+        // checkout page route
+        Route::get('/checkout','CheckoutCreate')->name('checkout');
+
+    });
+
+    Route::controller(CheckoutController::class)->group(function(){
+
+        Route::post('/checkout/store/','CheckoutStore')->name('checkout.store');
+
+    });
+
+}); // End Middleware
 
 ?>

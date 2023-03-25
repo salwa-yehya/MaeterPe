@@ -26,7 +26,7 @@
       @yield('user')
    </main>
    
-    @include('frontend.body.footer')
+    @include('frontend.body.footer2')
 
     
     <!-- Preloader Start -->

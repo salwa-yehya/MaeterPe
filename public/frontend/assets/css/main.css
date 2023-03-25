@@ -1153,7 +1153,7 @@ button.submit:hover, button[type='submit']:hover {
 }
 
 .btn:hover, .button:hover {
-  background-color: #FDC040;
+  background-color: #29A56C ;
 }
 
 .btn.btn-sm, .button.btn-sm {
@@ -5138,15 +5138,15 @@ table .product-thumbnail img {
 }
 
 .detail-extralink .detail-qty {
-  margin: 0 6px 15px 0;
+  /* margin: 0 6px 15px 0; */
   background: #fff;
   border: 2px solid #2F4F4F !important;
   font-size: 16px;
   font-weight: 700;
   color: #2F4F4F;
   border-radius: 5px;
-  padding: 11px 20px 11px 30px;
-  max-width: 90px;
+  /* padding: 11px 20px 11px 30px; */
+  max-width: 70px;
 }
 
 .stock-status {

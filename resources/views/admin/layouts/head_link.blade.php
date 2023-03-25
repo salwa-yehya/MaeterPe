@@ -14,7 +14,7 @@
 	<!-- loader-->
 	<link href="{{asset('AdminBackend/assets/css/pace.min.css')}}" rel="stylesheet" />
 	<script src="{{asset('AdminBackend/assets/js/pace.min.js')}}"></script>
-	<!-- Bootstrap CSS -->
+	<!-- Bootstrap CSS --
 	<link href="{{asset('AdminBackend/assets/css/bootstrap.min.css')}}" rel="stylesheet">
 	<link href="{{asset('AdminBackend/assets/css/app.css')}}" rel="stylesheet">
 	<link href="{{asset('AdminBackend/assets/css/icons.css')}}" rel="stylesheet">

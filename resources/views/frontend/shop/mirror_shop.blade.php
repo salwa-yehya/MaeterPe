@@ -131,9 +131,9 @@ $categories = App\Models\Category::orderBy('category_name' , 'ASC')->get();
                                         <span class="old-price">{{ $product->selling_price }}JD</span>
                                     </div>
                                     @endif
-                                    <div class="add-cart">
-                                        <a class="add" href="shop-cart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
-                                    </div>
+                                    {{-- <div class="add-cart" >
+                                        <input type="submit" class="add" value=" Add " style="height: 40px">
+                                    </div> --}}
                                   </div>
                             </div>
                         </div>
@@ -169,11 +169,11 @@ $categories = App\Models\Category::orderBy('category_name' , 'ASC')->get();
 
         <div class="col-lg-1-5 primary-sidebar sticky-sidebar" style="margin-top: -850px">
             <div class="sidebar-widget widget-category-2 mb-30">
-                <h5 class="section-title style-1 mb-30">Category</h5>
+                <h5 class="section-title style-1 mb-30" style="   font-family: 'object-fit: contain, object-position: 50% 50%'">Category</h5>
                 <ul>
                  
                     <li>
-                        <a href="{{ url('/mirror_shop')}}"><img src=" {{ asset('frontend/assets/imgs/shop/product-16-1.jpg') }} " alt="s" />ALL MIRRORS</a>
+                        <a href="{{ url('/mirror_shop')}}"><img src=" {{ asset('frontend/assets/imgs/shop/backg.jpg') }} " alt="s" />ALL MIRRORS</a>
                     </li>
                     @foreach($categories as $category)
 

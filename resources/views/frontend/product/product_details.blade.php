@@ -1,35 +1,36 @@
 @extends('frontend.masterD')
 @section('main')
 
+
 <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                    <span></span> <a href="shop-grid-right.html">{{ $product['category']['category_name'] }}</a> <span></span> {{$product->product_name}}
+                    <a href="/" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                    <span></span> {{ $product['category']['category_name'] }}<span></span> {{$product->product_name}}
                 </div>
             </div>
         </div>
         <div class="container mb-30">
             <div class="row">
                 <div class="col-xl-10 col-lg-12 m-auto">
-<div class="product-detail accordion-detail">
-    <div class="row mb-50 mt-30">
-        <div class="col-md-6 col-sm-12 col-xs-12 mb-md-0 mb-sm-5">
-            <div class="detail-gallery">
-                <span class="zoom-icon"><i class="fi-rs-search"></i></span>
-                <!-- MAIN SLIDES -->
-                <div class="product-image-slider">
-                    <figure class="border-radius-10">
-                        <img src="{{ asset($product->product_image)}}" alt="product image" />
-                    </figure>
-                  
-                </div>
-             
-            </div>
-            <!-- End Gallery -->
-        </div>
-        <div class="col-md-6 col-sm-12 col-xs-12">
-            <div class="detail-info pr-30 pl-30">
+                    <div class="product-detail accordion-detail">
+                        <div class="row mb-50 mt-30">
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-md-0 mb-sm-5">
+                                <div class="detail-gallery">
+                                    <span class="zoom-icon"><i class="fi-rs-search"></i></span>
+                                        <!-- MAIN SLIDES -->
+                                        <div class="product-image-slider">
+                                            <figure class="border-radius-10">
+                                                <img src="{{ asset($product->product_image)}}" alt="product image" />
+                                            </figure>
+                                        
+                                        </div>
+                                
+                                </div>
+                                <!-- End Gallery -->
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                <div class="detail-info pr-30 pl-30">
 
 
                 @if($product->product_qty > 0)
@@ -39,7 +40,7 @@
             	@endif
 
 
-                <h2 class="title-detail">{{ $product->product_name}}</h2>
+                <h2 class="title-detail" id="pname">{{ $product->product_name}}</h2>
                 <div class="product-detail-rating">
                     <div class="product-rate-cover text-end">
                         <div class="product-rate d-inline-block">
@@ -58,16 +59,16 @@
                 
                  @if($product->discount_price == NULL)
                 <div class="product-price primary-color float-left">
-                            <span class="current-price text-brand">{{ $product->selling_price }}JD</span>
+                            <span class="current-price text-brand" id="oldprice">{{ $product->selling_price }}JD</span>
                 
                         </div>
                  @else
                 
                  <div class="product-price primary-color float-left">
-                            <span class="current-price text-brand">{{ $product->discount_price }}JD</span>
+                            <span class="current-price text-brand" id="pprice">{{ $product->discount_price }}JD</span>
                             <span>
                                 <span class="save-price font-md color3 ml-15">{{ round($discount) }}% Off</span>
-                                <span class="old-price font-md ml-15">{{ $product->selling_price }}JD</span>
+                                <span class="old-price font-md ml-15" id="oldprice">{{ $product->selling_price }}JD</span>
                             </span>
                         </div>
                 
@@ -80,26 +81,35 @@
                 <div class="short-desc mb-30">
                     <p class="font-lg">{{$product->short_descp}}</p>
                 </div>
+                <form action="{{ url('cart/data/store/'.$product->id)}}" method="POST" class="d-inline-block"">
+                    @csrf
                 <div class="attr-detail attr-size mb-30">
                     <strong class="mr-10">Size : </strong>
-                    <p class="font-lg">{{$product->product_size}}</p>
+                    <p class="font-lg" id="size">{{$product->product_size}}</p>
+                    <input type="hidden" name="size" value="{{$product->product_size}}">
 
                 </div>
 
                 <div class="attr-detail attr-color mb-30">
                     <strong class="mr-10">Color Available : </strong>
-                    <p class="font-lg">{{$product->product_color}}</p>
-
+                    <p class="font-lg" id="color">{{$product->product_color}}</p>
+                    <input type="hidden" name="color" value="{{$product->product_color}}">
                 </div>
                 <div class="detail-extralink mb-50">
+                    
                     <div class="detail-qty border radius">
                         <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
-                        <input type="text" name="quantity" class="qty-val" value="1" min="1">
+                        <input type="text" name="quantity" id="qty" class="qty-val" value="1" min="1" >
                         <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+                        
                     </div>
                     <div class="product-extra-link2">
-                        <button type="submit" class="button button-add-to-cart"><i class="fi-rs-shopping-cart"></i>Add to cart</button>
-                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                   <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html" ><i class="fi-rs-heart"></i></a>
+                  </div>
+                    <div class="product-extra-link2">
+                        <input type="submit" class="button button-add-to-cart input-field" value="Add to cart">
+                        </form>
+
                     </div>
                 </div>
 
@@ -409,10 +419,7 @@
                     <img class="default-img" src="{{ asset( $product->product_image ) }}" alt="" />
                 </a>
             </div>
-            <div class="product-action-1">
-                <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-search"></i></a>
-                <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
-            </div>
+           
             <div class="product-badges product-badges-position product-badges-mrg">
 
 

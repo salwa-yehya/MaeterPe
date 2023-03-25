@@ -127,9 +127,9 @@ $discount = ($amount/$product->selling_price) * 100;
 
 
 
-            <div class="add-cart">
+            {{-- <div class="add-cart">
                 <a class="add" href="shop-cart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>
@@ -171,7 +171,7 @@ $discount = ($amount/$product->selling_price) * 100;
                 <h5 class="section-title style-1 mb-30">Category</h5>
                 <ul>
                     <li>
-                        <a href="{{ url('/mirror_shop')}}"><img src=" {{ asset('frontend/assets/imgs/shop/product-16-1.jpg') }} " alt="s" />ALL MIRRORS</a>
+                        <a href="{{ url('/mirror_shop')}}"><img src=" {{ asset('frontend/assets/imgs/shop/backg.jpg') }} " alt="s" />ALL MIRRORS</a>
                     </li>
 @foreach($categories as $category)
 
