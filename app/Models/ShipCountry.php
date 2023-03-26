@@ -9,5 +9,4 @@ class ShipCountry extends Model
 {
     use HasFactory;
     protected $guarded =[];
-
 }

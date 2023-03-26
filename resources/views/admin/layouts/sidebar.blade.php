@@ -79,9 +79,9 @@
             </a>
             <ul>
                 <ul>
-                    <li> <a href="{{ route('all.slider')}}"><i class="bx bx-right-arrow-alt"></i>Countries</a>
+                    <li> <a href="{{ route('all.country')}}"><i class="bx bx-right-arrow-alt"></i>Countries</a>
                     </li>
-                    <li> <a href="{{ route('add.slider')}}"><i class="bx bx-right-arrow-alt"></i>Cities</a>
+                    <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Cities</a>
                     </li>
     
                 </ul>

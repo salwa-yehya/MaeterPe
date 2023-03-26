@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 
@@ -158,5 +159,16 @@ Route::middleware(['auth','role:user'])->group(function(){
     });
 
 }); // End Middleware
+
+//shipping area
+Route::controller(ShippingAreaController::class)->group(function(){
+    Route::get('/all/country' , 'AllCountry')->name('all.country');
+    Route::get('/add/country' , 'AddCountry')->name('add.country');
+    Route::post('/store/country' , 'StoreCountry')->name('store.country');
+    Route::get('/edit/country/{id}' , 'EditCountry')->name('edit.country');
+    Route::post('/update/country' , 'UpdateCountry')->name('update.country');
+    Route::get('/delete/country/{id}' , 'DeleteCountry')->name('delete.country');
+
+}); 
 
 ?>
