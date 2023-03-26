@@ -3,7 +3,7 @@
 
 
 <div class="page-header breadcrumb-wrap">
-            <div class="container">
+            <div class="container" style="padding: 0px 50px">
                 <div class="breadcrumb">
                     <a href="/" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
                     <span></span> {{ $product['category']['category_name'] }}<span></span> {{$product->product_name}}

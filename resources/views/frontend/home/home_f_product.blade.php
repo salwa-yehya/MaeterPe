@@ -81,7 +81,7 @@
                                             </div> --}}
                         
                                         </div>
-                                        <a href="shop-cart.html" class="btn w-100 hover-up" style="   font-family: 'object-fit: contain, object-position: 50% 50%' ;  "><i class="fi-rs-shopping-cart mr-4"></i> Add To Cart</a>
+                                        <a href="{{ url('product/details/'.$product->id.'/'.$product->product_name) }}" class="btn w-100 hover-up" style="   font-family: 'object-fit: contain, object-position: 50% 50%' ;  font-weight:300"> Show More</a>
                                     </div>
                                 </div>
                                 <!--End product Wrap-->

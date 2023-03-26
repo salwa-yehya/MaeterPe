@@ -147,7 +147,7 @@ Route::middleware(['auth','role:user'])->group(function(){
         Route::get('/delete/cart/{id}','DeleteCart')->name('delete.cart');
 
         // checkout page route
-        Route::get('/checkout','CheckoutCreate')->name('checkout');
+        Route::get('/checkout/{finaltotal}','CheckoutCreate')->name('checkout');
 
     });
 

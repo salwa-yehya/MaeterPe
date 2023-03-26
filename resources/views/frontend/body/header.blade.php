@@ -139,7 +139,10 @@
                         </div>
                         <div class="shopping-cart-button">
                             <a href="{{route('mycart')}}" class="outline">View cart</a>
-                            <a href="{{ route('checkout',$finaltotal) }}">Checkout</a>
+                            @php
+                            $finaltotal = $AllTotal + 10 ;
+                          @endphp
+                            <a href="{{ route('checkout' , $finaltotal) }}">Checkout</a>
                         </div>
                     </div>
                 </div>
