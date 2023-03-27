@@ -77,4 +77,73 @@ class ShippingAreaController extends Controller
 
     }// End Method 
 
+
+    //////////////////city
+    public function AllCity(){
+        $city = ShipCity::latest()->get();
+        return view('backend.ship.city.city_all',compact('city'));
+    } // End Method 
+
+    public function AddCity(){
+        $country = ShipCountry::orderBy('country_name','ASC')->get();
+        return view('backend.ship.city.city_add',compact('country'));
+    }// End Method 
+
+    public function StoreCity(Request $request){ 
+
+        ShipCity::insert([ 
+            'country_id' => $request->country_id, 
+            'city_name' => $request->city_name,
+        ]);
+
+       $notification = array(
+            'message' => 'City Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.city')->with($notification); 
+
+    }// End Method
+    
+    public function EditCity($id){
+        $country = ShipCountry::orderBy('country_name','ASC')->get();
+        $city = ShipCity::findOrFail($id);
+        return view('backend.ship.city.city_edit',compact('city','country'));
+
+    }// End Method 
+
+
+    public function UpdateCity(Request $request){
+
+        $city_id = $request->id;
+
+         ShipCity::findOrFail($city_id)->update([
+             'country_id' => $request->country_id, 
+            'city_name' => $request->city_name,
+        ]);
+
+       $notification = array(
+            'message' => 'City Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.city')->with($notification); 
+
+
+    }// End Method 
+
+
+     public function DeleteCity($id){
+
+        ShipCity::findOrFail($id)->delete();
+
+         $notification = array(
+            'message' => 'ShipCity Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification); 
+
+
+    }// End Method 
 }

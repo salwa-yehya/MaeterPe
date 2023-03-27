@@ -160,7 +160,7 @@ Route::middleware(['auth','role:user'])->group(function(){
 
 }); // End Middleware
 
-//shipping area
+//shipping country
 Route::controller(ShippingAreaController::class)->group(function(){
     Route::get('/all/country' , 'AllCountry')->name('all.country');
     Route::get('/add/country' , 'AddCountry')->name('add.country');
@@ -171,4 +171,14 @@ Route::controller(ShippingAreaController::class)->group(function(){
 
 }); 
 
+
+Route::controller(ShippingAreaController::class)->group(function(){
+    Route::get('/all/city' , 'AllCity')->name('all.city');
+    Route::get('/add/city' , 'AddCity')->name('add.city');
+    Route::post('/store/city' , 'StoreCity')->name('store.city');
+    Route::get('/edit/city/{id}' , 'EditCity')->name('edit.city');
+    Route::post('/update/city' , 'UpdateCity')->name('update.city');
+    Route::get('/delete/city/{id}' , 'DeleteCity')->name('delete.city');
+
+}); 
 ?>
