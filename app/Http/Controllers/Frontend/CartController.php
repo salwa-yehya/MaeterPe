@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\ShipCountry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
@@ -71,9 +72,10 @@ class CartController extends Controller{
 
         $user_id = Auth::user()->id;
         $carts = Cart::where('user_id',$user_id)->get();
+        $countries = ShipCountry::orderBy('country_name','ASC')->get();
 
 
-        return view('frontend.checkout.checkout_view',compact('carts' , 'finaltotal'));
+        return view('frontend.checkout.checkout_view',compact('carts' , 'finaltotal' , 'countries'));
 
 
             }else{

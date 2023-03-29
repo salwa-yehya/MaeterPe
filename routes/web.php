@@ -10,6 +10,9 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\User\AllUserController;
+use App\Http\Controllers\User\StripeController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 
 
@@ -19,9 +22,6 @@ Route::get('/', function () {
 Route::get('/mirror_shop', function () {
     return view('frontend.shop.mirror_shop');
 });
-
-
-
                     // Route::get('/home', function () {
                     //     return view('home');
                     // });
@@ -134,9 +134,9 @@ Route::get('/product/details/{id}/{name}', [IndexController::class, 'ProductDeta
 Route::get('/product/category/{id}/{name}', [IndexController::class, 'CatWiseProduct']);
 
 
-/// Add to cart store data
-Route::middleware(['auth','role:user'])->group(function(){
 
+Route::middleware(['auth','role:user'])->group(function(){
+/// Add to cart store data
     Route::controller(CartController::class)->group(function(){
 
         // add to cart store data 
@@ -158,6 +158,31 @@ Route::middleware(['auth','role:user'])->group(function(){
 
     });
 
+// checkout 
+    Route::controller(CheckoutController::class)->group(function(){
+    Route::get('/city-get/ajax/{country_id}' , 'CityGetAjax');
+    Route::get('/state-get/ajax/{city_id}' , 'StateGetAjax');
+    Route::post('/checkout/store' , 'CheckoutStore')->name('checkout.store');
+    Route::post('/cash/order' , 'CashOrder')->name('cash.order');
+
+
+}); 
+
+ // User Dashboard All Route 
+ Route::controller(AllUserController::class)->group(function(){
+    Route::get('/user/account/page' , 'UserAccount')->name('user.account.page');
+    Route::get('/user/change/password' , 'UserChangePassword')->name('user.change.password');
+    Route::get('/user/order/page' , 'UserOrderPage')->name('user.order.page');
+
+
+}); 
+
+Route::controller(StripeController::class)->group(function(){
+    Route::post('/stripe/order' , 'StripeOrder')->name('stripe.order');
+    Route::post('/cash/order' , 'CashOrder')->name('cash.order');
+
+
+});
 }); // End Middleware
 
 //shipping country

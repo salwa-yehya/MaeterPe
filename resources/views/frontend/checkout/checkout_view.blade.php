@@ -1,5 +1,6 @@
 @extends('frontend.masterD')
 @section('main')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <div class="page-header breadcrumb-wrap">
     <div class="container" style="padding: 0px 50px">
@@ -7,7 +8,6 @@
             <a href="/" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
             <span></span>
             <a href="{{ route('checkout' , $finaltotal) }}">Checkout</a>
-             
         </div>
     </div>
 </div>
@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <form method="post" action="{{route('checkout.store')}}">
+    <form method="post" action="{{route('stripe.order')}}">
         @csrf
 
         <div class="row">
@@ -36,38 +36,44 @@
 
                     <div class="row">
                         <div class="form-group col-lg-6">
-                            <input type="text" required="" name="shipping_name" value="{{Auth::user()->name}}">
+                            <input type="text" placeholder="User Name" required="" name="shipping_name" value="{{Auth::user()->name}}">
                         </div>
                         <div class="form-group col-lg-6">
-                            <input type="email" required="" name="shipping_email" value="{{Auth::user()->email}}">
+                            <input type="email" placeholder="User Email" required="" name="shipping_email" value="{{Auth::user()->email}}">
                         </div>
                     </div>
 
 
 
                     <div class="row shipping_calculator">
-                        <div class="form-group col-lg-6">
-                            <input required="" type="text" name="shipping_phone" value="{{Auth::user()->phone}}" >
-                        </div>
+                            <div class="form-group col-lg-6">
+                                <div class="custom_select">
+                                    <select name="country_id" class="form-control">
+                                        <option value="">Select Country...</option>
+                                        @foreach($countries as $item)
+                                        <option value="{{ $item->id }}">{{ $item->country_name }}</option>
+                                        @endforeach
                     
-                        <div class="form-group col-lg-6">
-                            <input required="" type="text" name="shipping_address" value="{{Auth::user()->address}}" >
-                        </div>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <div class="custom_select">
+                                    <select name="city_id" class="form-control">
+                                        <option value="">Select City...</option>
+                    
+                    
+                                    </select>
+                                </div>
+                            </div>
+                        
                     </div>
 
 
                     <div class="row shipping_calculator">
-                        {{-- <div class="form-group col-lg-6">
-                            <div class="custom_select">
-                                <select name="state_name" class="form-control">
-                                    <option>Select State...</option>
-                                    @foreach($states as $item)
-                                        <option value="{{ $item->id }}">{{ $item->state_name }}</option>
-                                    @endforeach
-            
-                                </select>
-                            </div>
-                        </div> --}}
+                        <div class="form-group col-lg-6">
+                            <input required="" type="text" placeholder="Mobile Phone" name="shipping_phone" value="{{Auth::user()->phone}}" >
+                        </div>
                         
                     </div>
 
@@ -150,54 +156,20 @@
                                     </td>
                                     
                                     <td class="cart_total_amount">
-                                        <h4 class="text-end" style="color: red">{{$finaltotal}} JD </h4>
+                                        <h4 class="text-end"  style="color: red"> {{$finaltotal}} JD </h4>
+                                        <input type="hidden" value="{{$finaltotal}}" name="amount" />
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
 
                     </div>
-                </div>
-                <div class="payment ml-30">
-                    <h4 class="mb-30">Payment</h4>
-                    <div class="payment_option">
-              
-                       
-                            <div class="col-12">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        {{-- <div class="form-check">
-                                            <input class="form-check-input" name="stripe" type="radio" value="1" id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">Stripe</label>
-                                        </div> --}}
-                                    
-                                        <div class="form-check">
-                                            <input class="form-check-input" name="cash" type="radio" value="1" id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">Cash on delivery</label>
-                                        </div>
-{{--                                     
-                                        <div class="form-check">
-                                            <input class="form-check-input" name="card" type="radio" value="1" id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">Online Getway</label>
-                                        </div> --}}
-                                    </div>
-                                
-                                </div>
-                            </div>
-                    </div>
-
-                    <br>
-                    {{-- <div class="payment-logo d-flex">
-                        <img class="mr-15" src="{{asset('frontend/assets/imgs/theme/icons/payment-paypal.svg')}}" alt="">
-                        <img class="mr-15" src="{{asset('frontend/assets/imgs/theme/icons/payment-visa.svg')}}" alt="">
-                        <img class="mr-15" src="{{asset('frontend/assets/imgs/theme/icons/payment-master.svg')}}" alt="">
-                        <img src="{{asset('frontend/assets/imgs/theme/icons/payment-zapper.svg')}}" alt="">
-                    </div> --}}
-
-                    <button type="submit" class="btn btn-fill-out btn-block mt-30">Place an Order
-                        <i class="fi-rs-sign-out ml-15"></i>
+                       <button type="submit" class="btn btn-fill-out btn-block mt-30">Place an Order<i class="fi-rs-sign-out ml-15"></i>
                     </button>  
 
+                </div>
+        
+                 
                 </div>
             </div>
         </div>
@@ -219,4 +191,31 @@ checkboxes.forEach(function(checkbox) {
     });
 });
 </script>
+
+<script type="text/javascript">
+  		
+  		$(document).ready(function(){
+  			$('select[name="country_id"]').on('change', function(){
+  				var country_id = $(this).val();
+  				if (country_id) {
+  					$.ajax({
+  						url: "{{ url('/city-get/ajax') }}/"+country_id,
+  						type: "GET",
+  						dataType:"json",
+  						success:function(data){
+  							$('select[name="city_id"]').html('');
+  							var d =$('select[name="city_id"]').empty();
+  							$.each(data, function(key, value){
+  								$('select[name="city_id"]').append('<option value="'+ value.id + '">' + value.city_name + '</option>');
+  							});
+  						},
+  					});
+  				} else {
+  					alert('danger');
+  				}
+  			});
+  		});
+</script>
+
+
 @endsection
