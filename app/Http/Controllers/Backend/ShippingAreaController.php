@@ -68,7 +68,7 @@ class ShippingAreaController extends Controller
         ShipCountry::findOrFail($id)->delete();
 
          $notification = array(
-            'message' => 'Country Deleted Successfully',
+            'message' => 'Countries Deleted Successfully',
             'alert-type' => 'success'
         );
 
