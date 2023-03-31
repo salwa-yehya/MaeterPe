@@ -43,32 +43,22 @@
 				<td> {{ $key+1 }} </td>
 				<td>{{ $item->order_date }}</td>
 				<td>{{ $item->invoice_no }}</td>
-				<td>${{ $item->amount }}</td>
-				<td>{{ $item->payment_method }}</td>
+				<td>{{ $item->amount }} Jd</td>
+				<td>Cash on delivery</td>
                 <td> <span class="badge rounded-pill bg-success"> {{ $item->status }}</span></td> 
 
 				<td>
-              <a href="{{ route('admin.order.details',$item->id) }}" class="btn btn-info" title="Details"><i class="fa fa-eye"></i> </a>
+              <a href="{{ route('admin.order.details',$item->id) }}"  title="Details"><i class="fa fa-eye"></i> Show details </a>
 
 
 				</td> 
-			</tr>
-			@endforeach
+					</tr>
+					@endforeach
 			 
 		 
-		</tbody>
-		<tfoot>
-			<tr>
-				<th>Sl</th>
-				<th>Date </th>
-				<th>Invoice </th>
-				<th>Amount </th>
-				<th>Payment </th>
-				<th>State </th>
-				<th>Action</th> 
-			</tr>
-		</tfoot>
-	</table>
+								</tbody>
+							
+							</table>
 						</div>
 					</div>
 				</div>

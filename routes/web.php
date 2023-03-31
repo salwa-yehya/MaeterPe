@@ -5,10 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
-use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Backend\ShippingAreaController;
+use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\AllUserController;
@@ -197,7 +198,7 @@ Route::controller(ShippingAreaController::class)->group(function(){
 
 }); 
 
-
+//shipping city
 Route::controller(ShippingAreaController::class)->group(function(){
     Route::get('/all/city' , 'AllCity')->name('all.city');
     Route::get('/add/city' , 'AddCity')->name('add.city');
@@ -211,7 +212,11 @@ Route::controller(ShippingAreaController::class)->group(function(){
 Route::controller(OrderController::class)->group(function(){
     Route::get('/pending/order' , 'PendingOrder')->name('pending.order');
     Route::get('/admin/order/details/{order_id}' , 'AdminOrderDetails')->name('admin.order.details');
-
-
+    Route::get('/admin/confirmed/order' , 'AdminConfirmedOrder')->name('admin.confirmed.order');
+    Route::get('/admin/processing/order' , 'AdminProcessingOrder')->name('admin.processing.order');
+    Route::get('/admin/delivered/order' , 'AdminDeliveredOrder')->name('admin.delivered.order');
+    Route::get('/pending/confirm/{order_id}' , 'PendingToConfirm')->name('pending-confirm');
+    Route::get('/confirm/processing/{order_id}' , 'ConfirmToProcess')->name('confirm-processing');
+    Route::get('/processing/delivered/{order_id}' , 'ProcessToDelivered')->name('processing-delivered');
 }); 
 ?>

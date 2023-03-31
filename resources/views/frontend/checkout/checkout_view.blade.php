@@ -133,6 +133,7 @@
                                         @endphp
                                             <td>
                                                 <h4 class="text-brand">{{$total}} JD</h4>
+
                                             </td>
                                        
 
@@ -158,6 +159,7 @@
                                     <td class="cart_total_amount">
                                         <h4 class="text-end"  style="color: red"> {{$finaltotal}} JD </h4>
                                         <input type="hidden" value="{{$finaltotal}}" name="amount" />
+
                                     </td>
                                 </tr>
                             </tbody>
