@@ -162,8 +162,8 @@ Route::middleware(['auth','role:user'])->group(function(){
     Route::controller(CheckoutController::class)->group(function(){
     Route::get('/city-get/ajax/{country_id}' , 'CityGetAjax');
     Route::get('/state-get/ajax/{city_id}' , 'StateGetAjax');
-    Route::post('/checkout/store' , 'CheckoutStore')->name('checkout.store');
-    Route::post('/cash/order' , 'CashOrder')->name('cash.order');
+                Route::post('/checkout/store' , 'CheckoutStore')->name('checkout.store');
+                Route::post('/cash/order' , 'CashOrder')->name('cash.order');
 
 
 }); 
@@ -174,6 +174,7 @@ Route::middleware(['auth','role:user'])->group(function(){
     Route::get('/user/change/password' , 'UserChangePassword')->name('user.change.password');
     Route::get('/user/order/page' , 'UserOrderPage')->name('user.order.page');
     Route::get('/user/order_details/{order_id}' , 'UserOrderDetails');
+    Route::get('/user/invoice_download/{order_id}' , 'UserOrderInvoice');  
 
 }); 
 
@@ -204,6 +205,13 @@ Route::controller(ShippingAreaController::class)->group(function(){
     Route::get('/edit/city/{id}' , 'EditCity')->name('edit.city');
     Route::post('/update/city' , 'UpdateCity')->name('update.city');
     Route::get('/delete/city/{id}' , 'DeleteCity')->name('delete.city');
+
+}); 
+
+Route::controller(OrderController::class)->group(function(){
+    Route::get('/pending/order' , 'PendingOrder')->name('pending.order');
+    Route::get('/admin/order/details/{order_id}' , 'AdminOrderDetails')->name('admin.order.details');
+
 
 }); 
 ?>
