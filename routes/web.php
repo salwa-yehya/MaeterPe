@@ -234,4 +234,11 @@ Route::controller(ReviewController::class)->group(function(){
 
    });
    
+   // Search All Route 
+Route::controller(IndexController::class)->group(function(){
+
+    Route::post('/search' , 'ProductSearch')->name('product.search'); 
+   
+   });
+   
 ?>

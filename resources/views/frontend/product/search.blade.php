@@ -1,18 +1,19 @@
 @extends('frontend.masterD')
 @section('main')
-@php
-$products = App\Models\Product::where('status',1)->orderBy('id','ASC')->get();
-$categories = App\Models\Category::orderBy('category_name' , 'ASC')->get();
-@endphp
+
+{{-- @section('title')
+{{ $item }} You are searching..
+@endsection --}}
+
+
 <div class="page-header mt-30 mb-50">
     <div class="container">
         <div class="archive-header">
             <div class="row align-items-center">
                 <div class="col-xl-3">
-                    <h3 class="mb-15">ALL MIRRORS</h3>
                     <div class="breadcrumb">
                         <a href="/" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                        <span></span> ALL MIRRORS
+                        <span></span> {{ $item }}
                     </div>
                 </div>
 
@@ -111,25 +112,24 @@ $categories = App\Models\Category::orderBy('category_name' , 'ASC')->get();
                                     $product->product_name }} </a></h2>
 
                             <div class="product-rate-cover">
-                                 @php
-                                    $reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
-                                    $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
-                                    @endphp
+                                @php
+                                $reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+                                $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+                                @endphp
                                 <div class="product-rate d-inline-block">
                                     @if($avarage == 0)
 
-                                        @elseif($avarage == 1 || $avarage < 2)                     
-                                     <div class="product-rating" style="width: 20%"></div>
-                                        @elseif($avarage == 2 || $avarage < 3)                     
-                                     <div class="product-rating" style="width: 40%"></div>
-                                        @elseif($avarage == 3 || $avarage < 4)                     
-                                     <div class="product-rating" style="width: 60%"></div>
-                                        @elseif($avarage == 4 || $avarage < 5)                     
-                                     <div class="product-rating" style="width: 80%"></div>
-                                        @elseif($avarage == 5 || $avarage < 5)                     
-                                     <div class="product-rating" style="width: 100%"></div>
-                                     @endif
-
+                                    @elseif($avarage == 1 || $avarage < 2)                     
+                                 <div class="product-rating" style="width: 20%"></div>
+                                    @elseif($avarage == 2 || $avarage < 3)                     
+                                 <div class="product-rating" style="width: 40%"></div>
+                                    @elseif($avarage == 3 || $avarage < 4)                     
+                                 <div class="product-rating" style="width: 60%"></div>
+                                    @elseif($avarage == 4 || $avarage < 5)                     
+                                 <div class="product-rating" style="width: 80%"></div>
+                                    @elseif($avarage == 5 || $avarage < 5)                     
+                                 <div class="product-rating" style="width: 100%"></div>
+                                 @endif
                                 </div>
                                 <span class="font-small ml-5 text-muted"> ({{ count($reviewcount)}} reviews)</span>
                             </div>

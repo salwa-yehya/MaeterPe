@@ -48,8 +48,9 @@
                 </div>
                 <div class="header-right">
                     <div class="search-style-2">
-                        <form action="#">
-                            <input type="text" placeholder="Search for items..." />
+                        <form action="{{ route('product.search') }}" method="post">
+                            @csrf
+                            <input name="search" placeholder="Search for items..." />
                         </form>
 
                     </div>
@@ -57,7 +58,8 @@
                     <div class="header-action-right">
                         <div class="header-action-2">
                             <div class="search-location">
-                                <form action="#">
+                                <form action="{{ route('product.search') }}" method="post">
+                                    @csrf
                                 
                                 </form>
                             </div>

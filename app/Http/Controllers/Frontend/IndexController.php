@@ -27,4 +27,16 @@ class IndexController extends Controller
 
         return view('frontend.product.category_view',compact('products','categories','breadcat'));  
        }// End Method 
+
+       public function ProductSearch(Request $request){
+
+        $request->validate(['search' => "required"]);
+
+        $item = $request->search;
+        $categories = Category::orderBy('category_name','ASC')->get();
+        $products = Product::where('product_name','LIKE',"%$item%")->get();
+        $newProduct = Product::orderBy('id','DESC')->limit(3)->get();
+        return view('frontend.product.search',compact('products','item','categories','newProduct'));
+
+    }// End Method 
 }
