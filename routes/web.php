@@ -111,6 +111,8 @@ Route::controller(ProductController::class)->group(function(){
     Route::get('/product/active/{id}' , 'ProductActive')->name('product.active');
     Route::get('/delete/product/{id}' , 'ProductDelete')->name('delete.product');
 
+    // For Product Stock
+    Route::get('/product/stock' , 'ProductStock')->name('product.stock');
 
 });//end Product
 
