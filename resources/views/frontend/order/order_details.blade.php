@@ -67,8 +67,8 @@
                                             </tr>
 
    
-
-                                            {{-- <tr>
+{{-- 
+                                             <tr>
                                                 <th>Country:</th>
                                                 
                                                 <th>{{ $order->country->country_name }}</th>
@@ -77,7 +77,7 @@
                                             <tr>
                                                 <th>City:</th>
                                                 <th>{{ $order->city->city_name }}</th>
-                                            </tr> --}}
+                                            </tr>  --}}
 
                                             <tr>
                                                 <th>Order Date :</th>

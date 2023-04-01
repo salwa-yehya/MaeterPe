@@ -16,16 +16,15 @@ class StripeController extends Controller
         $user_id = Auth::user()->id;
         
 
-        $order_id = checkout::insertGetId([
+        $checkout_id = checkout::insertGetId([
             'user_id' => Auth::id(),
-            'country' => $request->country_id,
-            'city' => $request->city_id,
             'state_id' => 1 ,
             'name' => $request->shipping_name,
             'email' => $request->shipping_email,
             'phone' => $request->shipping_phone,
+            'country' => $request->country_id,
+            'city' => $request->city_id,
             'notes' => $request->notes,
-
             'amount' => $request->amount,
             
             'order_number' => 1,
@@ -42,7 +41,7 @@ class StripeController extends Controller
         foreach($carts as $cart){
 
             OrderItem::insert([
-                'order_id' => $order_id,
+                'checkout_id' => $checkout_id,
                 'product_id' => $cart->product_id,
                 'color' => $cart->color,
                 'size' => $cart->size,

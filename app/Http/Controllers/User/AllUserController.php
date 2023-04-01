@@ -29,19 +29,19 @@ class AllUserController extends Controller
       return view('frontend.userdashboard.user_order_page',compact('orders'));
     }// End Method 
 
-    public function UserOrderDetails($order_id){
+    public function UserOrderDetails($checkout_id){
 
-        $order = checkout::with('user','country','city')->where('id',$order_id)->where('user_id',Auth::id())->first();
-        $orderItem = OrderItem::with('product')->where('order_id',$order_id)->orderBy('id','DESC')->get();
+        $order = checkout::with('user','country','city')->where('id',$checkout_id)->where('user_id',Auth::id())->first();
+        $orderItem = OrderItem::with('product')->where('checkout_id',$checkout_id)->orderBy('id','DESC')->get();
 
         return view('frontend.order.order_details',compact('order','orderItem'));
 
     }// End Method 
 
-    public function UserOrderInvoice($order_id){
+    public function UserOrderInvoice($checkout_id){
 
-        // $order = checkout::with('country','city','user')->where('id',$order_id)->where('user_id',Auth::id())->first();
-        // $orderItem = OrderItem::with('product')->where('order_id',$order_id)->orderBy('id','DESC')->get();
+        // $order = checkout::with('country','city','user')->where('id',$checkout_id)->where('user_id',Auth::id())->first();
+        // $orderItem = OrderItem::with('product')->where('checkout_id',$checkout_id)->orderBy('id','DESC')->get();
 
         // $pdf = Pdf::loadView('frontend.order.order_invoice', compact('order','orderItem'))->setPaper('a4')->setOption([
         //         'tempDir' => public_path(),

@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\AllUserController;
+use App\Http\Controllers\User\ReviewController;
 use App\Http\Controllers\User\StripeController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 
@@ -219,4 +220,16 @@ Route::controller(OrderController::class)->group(function(){
     Route::get('/confirm/processing/{order_id}' , 'ConfirmToProcess')->name('confirm-processing');
     Route::get('/processing/delivered/{order_id}' , 'ProcessToDelivered')->name('processing-delivered');
 }); 
+
+// Admin Reviw All Route
+Route::controller(ReviewController::class)->group(function(){
+
+    Route::post('/store/review' , 'StoreReview')->name('store.review'); 
+    Route::get('/pending/review' , 'PendingReview')->name('pending.review'); 
+    Route::get('/review/approve/{id}' , 'ReviewApprove')->name('review.approve'); 
+    Route::get('/publish/review' , 'PublishReview')->name('publish.review'); 
+    Route::get('/review/delete/{id}' , 'ReviewDelete')->name('review.delete');
+
+   });
+   
 ?>

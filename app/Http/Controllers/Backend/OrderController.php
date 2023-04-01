@@ -14,10 +14,10 @@ class OrderController extends Controller
         return view('backend.orders.pending_orders',compact('orders'));
     } // End Method 
 
-    public function AdminOrderDetails($order_id){
+    public function AdminOrderDetails($checkout_id){
 
-        $order = checkout::with('country','city','user')->where('id',$order_id)->first();
-        $orderItem = OrderItem::with('product')->where('order_id',$order_id)->orderBy('id','DESC')->get();
+        $order = checkout::with('country','city','user')->where('id',$checkout_id)->first();
+        $orderItem = OrderItem::with('product')->where('checkout_id',$checkout_id)->orderBy('id','DESC')->get();
 
         return view('backend.orders.admin_order_details',compact('order','orderItem'));
 
@@ -40,8 +40,8 @@ class OrderController extends Controller
         return view('backend.orders.delivered_orders',compact('orders'));
     } // End Method 
 
-    public function PendingToConfirm($order_id){
-        checkout::findOrFail($order_id)->update(['status' => 'confirm']);
+    public function PendingToConfirm($checkout_id){
+        checkout::findOrFail($checkout_id)->update(['status' => 'confirm']);
 
         $notification = array(
             'message' => 'Order Confirm Successfully',
@@ -53,8 +53,8 @@ class OrderController extends Controller
 
     }// End Method 
 
-    public function ConfirmToProcess($order_id){
-        checkout::findOrFail($order_id)->update(['status' => 'processing']);
+    public function ConfirmToProcess($checkout_id){
+        checkout::findOrFail($checkout_id)->update(['status' => 'processing']);
 
         $notification = array(
             'message' => 'Order Processing Successfully',
@@ -67,8 +67,8 @@ class OrderController extends Controller
     }// End Method 
 
 
-      public function ProcessToDelivered($order_id){
-        checkout::findOrFail($order_id)->update(['status' => 'deliverd']);
+      public function ProcessToDelivered($checkout_id){
+        checkout::findOrFail($checkout_id)->update(['status' => 'deliverd']);
 
         $notification = array(
             'message' => 'Order Deliverd Successfully',

@@ -38,7 +38,7 @@
 
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
                 <div class="menu-title">Product</div>
             </a>
@@ -55,7 +55,7 @@
 
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
                 <div class="menu-title">Slider</div>
             </a>
@@ -73,7 +73,7 @@
 
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
                 <div class="menu-title">Shipping Area</div>
             </a>
@@ -90,7 +90,7 @@
 
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
                 <div class="menu-title">Orders</div>
             </a>
@@ -108,6 +108,22 @@
             </ul>
         </li>
         
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Review Manage</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('pending.review') }}"><i class="bx bx-right-arrow-alt"></i>Pending Review</a>
+                </li>
+    
+                <li> <a href="{{ route('publish.review') }}"><i class="bx bx-right-arrow-alt"></i>Publish Review</a>
+                  </li>
+    
+    
+            </ul>
+        </li>
         {{-- <li class="menu-label">UI Elements</li> --}}
    
         {{-- <li>
