@@ -10,8 +10,8 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">All Product Stock <span
-                            class="badge rounded-pill bg-danger"> {{ count($products) }} </span> </li>
+                    <li class="breadcrumb-item active" aria-current="page">All Product Stock
+                        </li>
                 </ol>
             </nav>
         </div>
@@ -31,10 +31,8 @@
                             <th>Sl</th>
                             <th>Image </th>
                             <th>Product Name </th>
-                            <th>Price </th>
                             <th>QTY </th>
-                            <th>Discount </th>
-                            <th>Status </th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -44,29 +42,13 @@
                             <td> <img src="{{ asset($item->product_image) }}" style="width: 70px; height:40px;">
                             </td>
                             <td>{{ $item->product_name }}</td>
-                            <td>{{ $item->selling_price }}</td>
-                            <td>{{ $item->product_qty }}</td>
+                            <td style="color: red">{{ $item->product_qty }} left</td>
 
-                            <td>
-                                @if($item->discount_price == NULL)
-                                <span class="badge rounded-pill bg-info">No Discount</span>
-                                @else
-                                @php
-                                $amount = $item->selling_price - $item->discount_price;
-                                $discount = ($amount/$item->selling_price) * 100;
-                                @endphp
-                                <span class="badge rounded-pill bg-danger"> {{ round($discount) }}%</span>
-                                @endif
-                            </td>
+                          
 
 
 
-                            <td> @if($item->status == 1)
-                                <span class="badge rounded-pill bg-success">Active</span>
-                                @else
-                                <span class="badge rounded-pill bg-danger">InActive</span>
-                                @endif
-                            </td>
+                           
 
 
                         </tr>

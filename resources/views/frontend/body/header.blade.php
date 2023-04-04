@@ -3,44 +3,7 @@
     <div class="mobile-promotion">
         <span>Grand opening, <strong>up to 15%</strong> off all items. Only <strong>3 days</strong> left</span>
     </div>
-    <div class="header-top header-top-ptb-1 d-none d-lg-block">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-3 col-lg-4">
-                    <div class="header-info">
-                        <ul>
 
-                            <li><a href="page-account.html">My Cart</a></li>
-                            <li><a href="shop-wishlist.html">Checkout</a></li>
-                            <li><a href="shop-order.html">Order Tracking</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-4">
-
-                </div>
-                <div class="col-xl-3 col-lg-4">
-                    <div class="header-info header-info-right">
-                        <ul>
-
-                            <li>
-                                <a class="language-dropdown-active" href="#">English <i
-                                        class="fi-rs-angle-small-down"></i></a>
-                                <ul class="language-dropdown">
-                                    <li>
-                                        <a href="#">Arabic</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
         <div class="container">
             <div class="header-wrap">
@@ -52,7 +15,9 @@
                     <div class="search-style-2">
                         <form action="{{ route('product.search') }}" method="post">
                             @csrf
-                            <input onfocus="search_result_show()" onblur="search_result_hide()" name="search" id="search" placeholder="Search for items..." />                            <div id="searchProducts"></div>
+                            <input onfocus="search_result_show()" onblur="search_result_hide()" name="search"
+                                id="search" placeholder="Search for items..." />
+                            <div id="searchProducts"></div>
                         </form>
 
                     </div>
@@ -66,14 +31,14 @@
                                 </form>
                             </div>
 
-                            <div class="header-action-icon-2">
+                            {{-- <div class="header-action-icon-2">
                                 <a href="shop-wishlist.html">
                                     <img class="svgInject" alt="img"
                                         src="{{ asset('frontend/assets/imgs/theme/icons/icon-heart.svg') }}" />
                                     <span class="pro-count blue">6</span>
                                 </a>
                                 <a href="shop-wishlist.html"><span class="lable">Wishlist</span></a>
-                            </div>
+                            </div> --}}
 
 
                             <div class="header-action-icon-2">
@@ -269,12 +234,12 @@
                 </div>
                 <div class="header-action-right d-block d-lg-none">
                     <div class="header-action-2">
-                        <div class="header-action-icon-2">
+                        {{-- <div class="header-action-icon-2">
                             <a href="shop-wishlist.html">
                                 <img alt="img" src="{{ asset('frontend/assets/imgs/theme/icons/icon-heart.svg') }}" />
                                 <Wishlistspan class="pro-count white">4</Wishlistspan>
                             </a>
-                        </div>
+                        </div> --}}
 
 
                         <div class="header-action-icon-2">
@@ -366,7 +331,7 @@
 <!-- End Header  -->
 
 <style>
-    #searchProducts{
+    #searchProducts {
         position: absolute;
         top: 100%;
         left: 0;
@@ -379,10 +344,10 @@
 </style>
 
 <script>
-    function search_result_show(){
+    function search_result_show() {
         $("#searchProducts").slideDown();
     }
-    function search_result_hide(){
+    function search_result_hide() {
         $("#searchProducts").slideUp();
     }
 </script>

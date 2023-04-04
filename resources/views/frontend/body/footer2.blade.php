@@ -7,13 +7,14 @@
             <div class="col-xl-4 col-lg-6 col-md-6">
                 <p class="font-sm mb-0">&copy; 2023, <strong class="text-brand">Reflection</strong> - Best Mirror Shop <br />All rights reserved</p>
             </div>
+            
             <div class="col-xl-4 col-lg-6 text-center d-none d-xl-block">
 
                 <div class="hotline d-lg-inline-flex">
-                    <img src="{{ asset('frontend/assets/imgs/theme/icons/phone-call.svg') }}" alt="hotline" />
-                    <p>65 - 12345<span>24/7 Support Center</span></p>
+                    {{-- <img src="{{ asset('frontend/assets/imgs/theme/logo-web.png') }}" alt="hotline" /> --}}
                 </div>
             </div>
+
             <div class="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
                 <div class="mobile-social-icon">
                     <h6>Follow Us</h6>

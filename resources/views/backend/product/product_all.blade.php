@@ -78,7 +78,9 @@
 					<a href="{{ route('edit.product',$item->id) }}" title="Edit Data"> <i class="fa fa-pencil" style="padding-right: 10px"></i> </a>
 					<a href="{{ route('delete.product',$item->id) }}"  id="delete" title="Delete Data" ><i class="fa fa-trash" style="padding-right: 10px"></i></a>
 
-					<a href="{{ route('edit.category',$item->id) }}"  title="Details Page"> <i class="fa fa-eye" style="padding-right: 10px"></i> </a>
+					{{-- <a href="{{ route('edit.category',$item->id) }}"  title="Details Page"> <i class="fa fa-eye" style="padding-right: 10px"></i> </a> --}}
+
+
 					@if($item->status == 1)
 					<a href="{{ route('product.inactive',$item->id) }}"  title="Click to Inactive"> <i class="fa-solid fa-thumbs-down"></i> </a>
 					@else

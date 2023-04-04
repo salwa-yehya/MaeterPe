@@ -59,7 +59,7 @@ $categories = App\Models\Category::orderBy('category_name' , 'ASC')->get();
                             </div>
                             <div class="product-content-wrap">
                                 <div class="product-category">
-                                    <a href="shop-grid-right.html">{{ $product['category']['category_name'] }}</a>
+                                    <a >{{ $product['category']['category_name'] }}</a>
                                 </div>
                                 <h2 style="padding-top: 0px"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_name) }}"> {{ $product->product_name }} </a></h2>
                                 @php

@@ -58,8 +58,10 @@ $offer = App\Models\Product::where('offer',1)->orderBy('id','DESC')->limit(5)->g
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop-grid-right.html">{{ $product['category']['category_name']
+                                           
+                                            <a>{{ $product['category']['category_name']
                                                 }}</a>
+                                                
                                         </div>
                                         <h2 style="padding-top: 0px ; margin-bottom : -12px"><a
                                                 href="{{ url('product/details/'.$product->id.'/'.$product->product_name) }}">{{
