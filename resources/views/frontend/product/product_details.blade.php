@@ -103,8 +103,8 @@
                             </div>
                             <form action="{{ url('cart/data/store/'.$product->id)}}" method="POST"
                                 class="d-inline-block"">
-                    @csrf
-                <div class=" attr-detail attr-size mb-30">
+                                @csrf
+                               <div class=" attr-detail attr-size mb-30">
                                 <strong class="mr-10">Size : </strong>
                                 <p class="font-lg" id="size">{{$product->product_size}}</p>
                                 <input type="hidden" name="size" value="{{$product->product_size}}">

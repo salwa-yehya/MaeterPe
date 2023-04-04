@@ -8,8 +8,8 @@
         <div class="container">
             <div class="header-wrap">
                 <div class="logo logo-width-1">
-                    <a href="index.html"><img src="{{ asset('frontend/assets/imgs/theme/logo-web.png') }}" alt="logo"
-                            width="160px" /></a>
+                    <a href="index.html"><img src="{{ asset('frontend/assets/imgs/theme/logo-web.png') }}"
+                            alt="logo" width="160px" /></a>
                 </div>
                 <div class="header-right">
                     <div class="search-style-2">
@@ -25,9 +25,7 @@
                     <div class="header-action-right">
                         <div class="header-action-2">
                             <div class="search-location">
-                                <form action="{{ route('product.search') }}" method="post">
-                                    @csrf
-
+                                <form action="#">
                                 </form>
                             </div>
 
@@ -101,7 +99,6 @@
                                         foreach ($carts as $cart) {
                                         $qty = $cart->quantity;
                                         if ($cart['product']['discount_price'] == NULL) {
-
                                         $selling_price = $cart['product']['selling_price'];
                                         $total = $qty * $selling_price;
                                         $AllTotal +=$total;
@@ -109,7 +106,6 @@
                                         $discount_price = $cart['product']['discount_price'];
                                         $total = $qty * $discount_price;
                                         $AllTotal +=$total;
-
                                         }
                                         }
                                         @endphp
@@ -146,22 +142,7 @@
                                             <a href="{{ route('dashboard')}}"><i class="fi fi-rs-user mr-10"></i>My
                                                 Account</a>
                                         </li>
-                                        <li>
-                                            <a href="{{ route('dashboard')}}"><i
-                                                    class="fi fi-rs-location-alt mr-10"></i>Order Tracking</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('dashboard')}}"><i class="fi fi-rs-label mr-10"></i>My
-                                                Voucher</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('dashboard')}}"><i class="fi fi-rs-heart mr-10"></i>My
-                                                Wishlist</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('dashboard')}}"><i
-                                                    class="fi fi-rs-settings-sliders mr-10"></i>Setting</a>
-                                        </li>
+
                                         <li>
                                             <a href="{{ route('user.logout')}}"><i
                                                     class="fi fi-rs-sign-out mr-10"></i>Sign out</a>
@@ -180,6 +161,7 @@
                 </div>
             </div>
         </div>
+      </div>
     </div>
 
 
@@ -192,8 +174,6 @@
                 </div>
                 <div class="header-nav d-none d-lg-flex">
                     <div class="main-categori-wrap d-none d-lg-block">
-
-
                     </div>
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
                         <nav>
@@ -298,7 +278,6 @@
                                     foreach ($carts as $cart) {
                                     $qty = $cart->quantity;
                                     if ($cart['product']['discount_price'] == NULL) {
-
                                     $selling_price = $cart['product']['selling_price'];
                                     $total = $qty * $selling_price;
                                     $AllTotal +=$total;
@@ -306,7 +285,6 @@
                                     $discount_price = $cart['product']['discount_price'];
                                     $total = $qty * $discount_price;
                                     $AllTotal +=$total;
-
                                     }
                                     }
                                     @endphp
@@ -326,9 +304,16 @@
             </div>
         </div>
     </div>
+
+ 
+
+
+
+
 </header>
 
 <!-- End Header  -->
+
 
 <style>
     #searchProducts {
@@ -343,14 +328,10 @@
     }
 </style>
 
-<script>
-    function search_result_show() {
-        $("#searchProducts").slideDown();
-    }
-    function search_result_hide() {
-        $("#searchProducts").slideUp();
-    }
-</script>
+
+
+
+
 
 <div class="mobile-header-active mobile-header-wrapper-style">
     <div class="mobile-header-wrapper-inner">
@@ -384,7 +365,7 @@
 
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="{{ url('/shop')}}">Mirrors</a>
+                            <a href="{{url ('/mirror_shop')}}">Mirrors</a>
 
                         </li>
                         <li class="menu-item-has-children">
