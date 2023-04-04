@@ -186,7 +186,7 @@
 
         <div class="row flex-row">
 
-            <div class="col-lg-1-5 primary-sidebar sticky-sidebar" style="margin-top: -850px">
+            <div class="col-lg-1-5 primary-sidebar sticky-sidebar" style="margin-top: -460px">
                 <div class="sidebar-widget widget-category-2 mb-30">
                     <h5 class="section-title style-1 mb-30"
                         style="   font-family: 'object-fit: contain, object-position: 50% 50%'">Category</h5>
