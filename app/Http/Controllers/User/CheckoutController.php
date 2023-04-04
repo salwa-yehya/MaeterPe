@@ -17,19 +17,4 @@ class CheckoutController extends Controller
 
     } // End Method 
 
-    // public function CheckoutStore(Request $request){
-
-    //     $data = array();
-    //     $data['shipping_name'] = $request->shipping_name;
-    //     $data['shipping_email'] = $request->shipping_email;
-    //     $data['shipping_phone'] = $request->shipping_phone;
-    //     $data['country_id'] = $request->country_id;
-    //     $data['city_id'] = $request->city_id;
-    //     $data['notes'] = $request->notes; 
-
-    //     return view('frontend.payment.cash',compact('data'));
-        
-
-
-    // }// End Method 
 }

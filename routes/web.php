@@ -24,21 +24,6 @@ Route::get('/', function () {
 Route::get('/mirror_shop', function () {
     return view('frontend.shop.mirror_shop');
 });
-                    // Route::get('/home', function () {
-                    //     return view('home');
-                    // });
-                    // Route::get('/about', function () {
-                    //     return view('about');
-                    // });
-                    // Route::get('/contact', function () {
-                    //     return view('contact');
-                    // });
-                    // Route::get('/shop', function () {
-                    //     return view('shop');
-                    // });
-                    // Route::get('/customize', function () {
-                    //     return view('customize');
-                    // });
 
 Route::middleware(['auth'])->group(function(){
 
@@ -53,9 +38,6 @@ Route::middleware(['auth'])->group(function(){
 
 });//Group Middleware end
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
 
 
 require __DIR__.'/auth.php';
@@ -165,11 +147,6 @@ Route::middleware(['auth','role:user'])->group(function(){
 // checkout 
     Route::controller(CheckoutController::class)->group(function(){
     Route::get('/city-get/ajax/{country_id}' , 'CityGetAjax');
-    Route::get('/state-get/ajax/{city_id}' , 'StateGetAjax');
-                Route::post('/checkout/store' , 'CheckoutStore')->name('checkout.store');
-                Route::post('/cash/order' , 'CashOrder')->name('cash.order');
-
-
 }); 
 
  // User Dashboard All Route 
