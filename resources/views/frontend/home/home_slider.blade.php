@@ -18,7 +18,8 @@ $slider = App\Models\Slider::orderBy('slider_title','ASC')->get();
                                     <p class="mb-65 display-22"> {{$item->short_title}}</p>
                                     <form class="form-subcriber d-flex">
                                         {{-- <input type="email" placeholder="Your emaill address" /> --}}
-                                        <button class="btn" type="submit">Shop Now</button>
+                                      
+                                        <a href="{{url ('/mirror_shop')}}" class="btn" type="submit">Shop Now</a>
                                     </form>
                                 </div>
                             </div>

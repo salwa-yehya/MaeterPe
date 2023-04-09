@@ -12,12 +12,7 @@ $offer = App\Models\Product::where('offer',1)->orderBy('id','DESC')->limit(5)->g
         <div class="row" style="padding : 25px 60px">
             <div class="col-lg-3 d-none d-lg-flex wow animate__animated animate__fadeIn">
                 <div class="banner-img style-2">
-                    <div class="banner-text">
-                        {{-- <h2 class="mb-100">UP TO <br>
-                            40% OFF</h2> --}}
-                        {{-- <a href="shop-grid-right.html" class="btn btn-xs">Shop Now <i
-                                class="fi-rs-arrow-small-right"></i></a> --}}
-                    </div>
+                    
                 </div>
             </div>
             <div class="col-lg-9 col-md-12 wow animate__animated animate__fadeIn" data-wow-delay=".4s">

@@ -24,6 +24,9 @@ Route::get('/', function () {
 Route::get('/mirror_shop', function () {
     return view('frontend.shop.mirror_shop');
 });
+Route::get('/about', function () {
+    return view('frontend.about.about');
+});
 
 Route::middleware(['auth'])->group(function(){
 

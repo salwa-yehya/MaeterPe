@@ -7,9 +7,11 @@
     <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
         <div class="container">
             <div class="header-wrap">
-                <div class="logo logo-width-1">
-                    <a href="index.html"><img src="{{ asset('frontend/assets/imgs/theme/logo-web.png') }}"
-                            alt="logo" width="160px" /></a>
+                <div class="logo logo-width-1" style="padding-left: 20px">
+                    <a href="/" > <img src="{{ asset('frontend/assets/imgs/theme/logo-web.png') }}"
+                        alt="logo" />
+                        </a>
+                    <h4 style="padding-left:7px ; font-weight:400 ; margin-top:-7px" > <font color="#A08354">Reflection</font></h4>    
                 </div>
                 <div class="header-right">
                     <div class="search-style-2">
@@ -169,8 +171,11 @@
         <div class="container">
             <div class="header-wrap header-space-between position-relative">
                 <div class="logo logo-width-1 d-block d-lg-none">
-                    <a href="index.html"><img src="{{ asset('frontend/assets/imgs/theme/logo-web.png') }}"
-                            alt="logo" /></a>
+                    <a href="/">
+
+                        <img src="{{ asset('frontend/assets/imgs/theme/logo-web.png') }}"
+                            alt="logo" />
+                        </a>
                 </div>
                 <div class="header-nav d-none d-lg-flex">
                     <div class="main-categori-wrap d-none d-lg-block">
@@ -188,11 +193,12 @@
                                     <a href="{{url ('/mirror_shop')}}">Mirrors</a>
                                 </li>
                                 <li>
-                                    <a href="page-about.html">About</a>
+                                    <a href="{{url ('/about')}}">About</a>
                                 </li>
                                 <li>
                                     <a href="page-contact.html">Contact</a>
                                 </li>
+
                             </ul>
                         </nav>
                     </div>
@@ -200,8 +206,8 @@
                 </div>
 
                 <div class="hotline d-none d-lg-flex">
-                    <img src="{{ asset('frontend/assets/imgs/theme/icons/icon-headphone.svg')}}" alt="hotline" />
-                    <p>65 - 12345<span>24/7 Support Center</span></p>
+                    <img src="{{ asset('frontend/assets/imgs/theme/logo-web.png')}}" alt="hotline" height="60px" />
+                    
                 </div>
 
 
