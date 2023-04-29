@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
-
+use App\Models\Contact;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
@@ -50,4 +52,32 @@ class IndexController extends Controller
          return view('frontend.product.search_product',compact('products'));
  
       }// End Method 
+
+    public function ContactPage() {
+        $user = Auth::user();
+        return view('frontend.page.page_contact',compact('user'));
+
+    }
+
+    public function StoreContact(Request $request) {
+
+        Contact::insert([
+            'user_id' => Auth::id(),
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'subject' => $request->subject,
+            'message' => $request->message,
+            'created_at' =>Carbon::now(),
+
+        ]);
+
+        $notification = array(
+            'message' => 'Thank you for message',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+    }
 }

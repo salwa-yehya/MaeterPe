@@ -26,57 +26,9 @@
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-	<script>
-	@if(Session::has('message'))
-	var type = "{{ Session::get('alert-type','info') }}"
-	switch(type){
-		case 'info':
-		toastr.info(" {{ Session::get('message') }} ");
-		break;
-
-		case 'success':
-		toastr.success(" {{ Session::get('message') }} ");
-		break;
-
-		case 'warning':
-		toastr.warning(" {{ Session::get('message') }} ");
-		break;
-
-		case 'error':
-		toastr.error(" {{ Session::get('message') }} ");
-		break; 
-	}
-	@endif 
-	</script>
-
 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-	{{-- ?????confirm delete  --}}
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-	
-	<script type="text/javascript">
-		$('.show-alert-delete-box').click(function(event){
-			var form =  $(this).closest("form");
-			var name = $(this).data("name");
-			event.preventDefault();
-			swal({
-				title: "Are you sure you want to delete this record?",
-				text: "If you delete this, it will be gone forever.",
-				icon: "warning",
-				type: "warning",
-				buttons: ["Cancel","Yes!"],
-				confirmButtonColor: '#3085d6',
-				cancelButtonColor: '#d33',
-				confirmButtonText: 'Yes, delete it!'
-			}).then((willDelete) => {
-				if (willDelete) {
-					form.submit();
-				}
-			});
-		});
-	</script>
-	{{-- ?????confirm delete  --}}
+
 
    <script src="{{ asset('Adminbackend/assets/js/code.js') }}"></script>
 
@@ -92,4 +44,56 @@
 	</script>
 
 	</script>
+
+	
+		{{-- ?????confirm delete  --}}
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+		
+		<script type="text/javascript">
+			$('.show-alert-delete-box').click(function(event){
+				var form =  $(this).closest("form");
+				var name = $(this).data("name");
+				event.preventDefault();
+				swal({
+					title: "Are you sure you want to delete this record?",
+					text: "If you delete this, it will be gone forever.",
+					icon: "warning",
+					type: "warning",
+					buttons: ["Cancel","Yes!"],
+					confirmButtonColor: '#3085d6',
+					cancelButtonColor: '#d33',
+					confirmButtonText: 'Yes, delete it!'
+				}).then((willDelete) => {
+					if (willDelete) {
+						form.submit();
+					}
+				});
+			});
+		</script>
+		{{-- ?????confirm delete  --}}
+
+
+		<script>
+			@if(Session::has('message'))
+			var type = "{{ Session::get('alert-type','info') }}"
+			switch(type){
+				case 'info':
+				toastr.info(" {{ Session::get('message') }} ");
+				break;
+		
+				case 'success':
+				toastr.success(" {{ Session::get('message') }} ");
+				break;
+		
+				case 'warning':
+				toastr.warning(" {{ Session::get('message') }} ");
+				break;
+		
+				case 'error':
+				toastr.error(" {{ Session::get('message') }} ");
+				break; 
+			}
+			@endif 
+			</script>
 	<script src="{{asset('AdminBackend/assets/plugins/metismenu/js/metisMenu.min.js')}}"></script>

@@ -7,7 +7,7 @@
 
       <div class="row">
         <div class="col-lg-4" data-aos="fade-right" data-aos-delay="100" style="padding: 0 25px">
-          <img src="{{ asset('frontend/assets/imgs/page/about.png') }}" width="500px">
+          <img  src="{{ asset('frontend/assets/imgs/page/about.png') }}" width="500px">
         </div>
         <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
           <h1>Quality, not quantity</h1>

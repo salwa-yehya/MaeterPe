@@ -124,14 +124,15 @@
                                 <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
 
                             </div>
-                            {{-- <div class="product-extra-link2">
-                                <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i
-                                        class="fi-rs-heart"></i></a>
-                            </div> --}}
+                    
                             <div class="product-extra-link2">
+                                @if($product->product_qty > 0)
                                 <input type="submit" class="button button-add-to-cart input-field" value="Add to cart">
-                                </form>
+                                @else
+                                <button style="background-color: #dc3545" class="button button-add-to-cart" value="Sold Out"> Sold Out </button>
 
+                                @endif
+                                </form>
                             </div>
                         </div>
 

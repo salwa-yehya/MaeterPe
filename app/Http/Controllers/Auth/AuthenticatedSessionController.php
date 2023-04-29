@@ -25,9 +25,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        $credentials = $request->only('email', 'password');
 
-        $request->session()->regenerate();
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
 
 
         $notification = array(
@@ -44,7 +45,13 @@ class AuthenticatedSessionController extends Controller
 
         return redirect()->intended($url)->with($notification);
     }
+    $notification = [
+        'message' => 'Incorrect email or password',
+        'alert-type' => 'error'
+    ];
 
+    return redirect()->back()->withInput()->with($notification);
+}
     /**
      * Destroy an authenticated session.
      */
@@ -56,6 +63,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
+  
         return redirect('/');
     }
 }

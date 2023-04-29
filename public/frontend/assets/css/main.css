@@ -5166,7 +5166,7 @@ table .product-thumbnail img {
 }
 
 .stock-status.out-stock {
-  color: #f74b81;
+  color: #dc3545;
   background: #fde0e9;
 }
 
@@ -5264,8 +5264,8 @@ table .product-thumbnail img {
   padding: 0px 20px;
   border-radius: 5px;
   border: 0;
-  height: 50px;
-  line-height: 50px;
+  height: 47px;
+  line-height: 47px;
   font-weight: 700;
   font-size: 16px;
   font-family: "Quicksand", sans-serif;

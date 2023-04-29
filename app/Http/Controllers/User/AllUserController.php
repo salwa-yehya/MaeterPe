@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\checkout;
 use App\Models\OrderItem;
+use App\Models\ReplyMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -38,17 +39,11 @@ class AllUserController extends Controller
 
     }// End Method 
 
-    public function UserOrderInvoice($checkout_id){
+    public function ReplyMessagePage() {
 
-        // $order = checkout::with('country','city','user')->where('id',$checkout_id)->where('user_id',Auth::id())->first();
-        // $orderItem = OrderItem::with('product')->where('checkout_id',$checkout_id)->orderBy('id','DESC')->get();
-
-        // $pdf = Pdf::loadView('frontend.order.order_invoice', compact('order','orderItem'))->setPaper('a4')->setOption([
-        //         'tempDir' => public_path(),
-        //         'chroot' => public_path(),
-        // ]);
-        // return $pdf->download('invoice.pdf');
-
-    }// End Method 
+        $id = Auth::user()->id;
+        $replyMessage = ReplyMessage::where('user_id',$id)->orderBy('id','DESC')->get();
+        return view('frontend.userdashboard.reply_message_page',compact('replyMessage'));
+    }
 
 }

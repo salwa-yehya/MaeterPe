@@ -168,6 +168,19 @@ Route::controller(StripeController::class)->group(function(){
 
 
 });
+Route::controller(ContactController::class)->group(function(){
+
+    Route::get('/all/message','AllMessage')->name('all.message');
+    Route::get('/delete/message/{id}','DeleteMessage')->name('delete.message');
+    Route::get('/reply/message/{id}','ReplyMessage')->name('reply.message');
+    Route::post('/store/replymessage/','StoreReplyMessage')->name('store.replymessage');
+
+    Route::get('/all/replymessage/','AllReplyMessage')->name('all.replymessage');
+    Route::get('/delete/replymessage/{id}','DeleteReplyMessage')->name('delete.replymessage');
+
+
+});
+
 }); // End Middleware
 
 //shipping country
@@ -219,6 +232,10 @@ Route::controller(IndexController::class)->group(function(){
 
     Route::post('/search' , 'ProductSearch')->name('product.search'); 
     Route::post('/search-product' , 'SearchProduct'); 
+    Route::get('/user/contact/page','ContactPage')->name('user.contact.page');
+    Route::post('/store/contact','StoreContact')->name('store.contact');
+
+
    });
    
 ?>
