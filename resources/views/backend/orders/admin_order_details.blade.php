@@ -52,15 +52,15 @@
                         </tr> --}}
 
 
-                        <tr>
+                        {{-- <tr>
                             <th>Country:</th>
-                            {{-- <th>{{ $order->country->country_name }}</th> --}}
+                            <th>{{ $order->country->country_name }}</th>
                         </tr>
 
                         <tr>
                             <th>City:</th>
-                            {{-- <th>{{ $order->city->city_name }}</th> --}}
-                        </tr>
+                            <th>{{ $order->city->city_name }}</th>
+                        </tr> --}}
 
 
                         <tr>

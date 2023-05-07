@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\AllUserController;
@@ -26,6 +27,9 @@ Route::get('/mirror_shop', function () {
 });
 Route::get('/about', function () {
     return view('frontend.about.about');
+});
+Route::get('/contact', function () {
+    return view('frontend.contact.page_contact');
 });
 
 Route::middleware(['auth'])->group(function(){

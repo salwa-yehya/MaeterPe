@@ -196,7 +196,7 @@
                                     <a href="{{url ('/about')}}">About</a>
                                 </li>
                                 <li>
-                                    <a href="page-contact.html">Contact</a>
+                                    <a href="{{url ('/contact')}}">Contact</a>
                                 </li>
 
                             </ul>
@@ -206,8 +206,9 @@
                 </div>
 
                 <div class="hotline d-none d-lg-flex">
+                    <a href="/">
                     <img src="{{ asset('frontend/assets/imgs/theme/logo-web.png')}}" alt="hotline" height="60px" />
-                    
+                    </a>
                 </div>
 
 

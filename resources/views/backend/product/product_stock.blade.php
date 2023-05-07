@@ -42,8 +42,11 @@
                             <td> <img src="{{ asset($item->product_image) }}" style="width: 70px; height:40px;">
                             </td>
                             <td>{{ $item->product_name }}</td>
-                            <td style="color: red">{{ $item->product_qty }} left</td>
-
+                            @if($item->product_qty<=0) 
+                            <td style="color: red">Out Of Stock</td>
+                            @else
+                            <td style="color: rgb(10, 10, 10)">{{ $item->product_qty }} left</td>
+                            @endif
                           
 
 
